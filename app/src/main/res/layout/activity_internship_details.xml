@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Full stack (Java/Angular) Developer"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="45dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hedgeserv"
+            android:textSize="25sp"
+            tools:layout_editor_absoluteX="133dp"
+            tools:layout_editor_absoluteY="128dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Duration:"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="220dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Working hours:"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="246dp" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</RelativeLayout>

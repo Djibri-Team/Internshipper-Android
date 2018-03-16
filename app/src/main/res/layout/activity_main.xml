@@ -40,7 +40,7 @@
             android:layout_below="@id/not_applied_text"
             android:layout_centerHorizontal="true"
             android:textColor="@color/white"
-            android:backgroundTint="#2e87c0"
+            android:backgroundTint="@color/themeBlue"
             android:background="@drawable/roundedbutton"
             />
 
@@ -51,7 +51,6 @@
             android:layout_height="wrap_content"
             android:visibility="gone">
         </android.support.v7.widget.RecyclerView>
-
 
     </RelativeLayout>
 
