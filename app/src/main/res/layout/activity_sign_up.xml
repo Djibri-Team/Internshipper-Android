@@ -14,35 +14,50 @@
         android:paddingEnd="24dp"
         android:paddingTop="45dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/internshipper_logo"
-            android:layout_gravity="center_horizontal"/>
-
         <TextView
-            android:id="@+id/welcome_text"
+            android:id="@+id/tv_create_acc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:text="@string/welcome_text"
+            android:text="@string/create_acc_text"
             android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="35dp" />
+            android:textSize="35sp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/black"/>
 
         <EditText
-            android:id="@+id/et_email"
+            android:id="@+id/et_first_name"
             android:background="@drawable/edittext_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/username_text"
+            android:hint="@string/first_name_text"
+            android:textColor="@color/black"
+            android:textColorHint="@color/iron"/>
+
+        <EditText
+            android:id="@+id/et_last_name"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edittext_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/last_name_text"
+            android:textColor="@color/black"
+            android:textColorHint="@color/iron"/>
+
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edittext_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email_text"
             android:textColorHint="@color/iron"
             android:textColor="@color/black"
-            android:inputType="textEmailAddress"
-            />
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/et_password"
+            android:layout_marginTop="5dp"
             android:background="@drawable/edittext_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,46 +66,47 @@
             android:textColor="@color/black"
             android:inputType="textPassword" />
 
-        <TextView
-            android:id="@+id/tv_forgot_password"
+        <EditText
+            android:id="@+id/et_confirm_password"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edittext_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/forgot_password_text"
-            android:textAlignment="textEnd"
-            android:textColor="@color/iron" />
+            android:hint="@string/password_repeat_text"
+            android:textColorHint="@color/iron"
+            android:textColor="@color/black"
+            android:inputType="textPassword" />
 
         <com.dd.CircularProgressButton
-            android:id="@+id/btn_signin"
+            android:id="@+id/btn_signup"
             android:layout_width="196dp"
             android:layout_height="64dp"
             android:layout_gravity="center"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:cpb_textComplete="@string/complete"
             app:cpb_textError="@string/error"
-            app:cpb_textIdle="@string/signin_text"
+            app:cpb_textIdle="@string/signup_text"
             app:cpb_cornerRadius="48dp"/>
 
         <TextView
-            android:id="@+id/tv_no_account"
+            android:id="@+id/tv_already_has_account_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="@string/no_account_text"
+            android:text="@string/have_account_text"
             android:textColor="@color/iron"/>
 
         <TextView
-            android:id="@+id/tv_signup"
+            android:id="@+id/tv_signin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/signup_text"
+            android:text="@string/signin_text"
             android:textColor="#696969"
             android:textStyle="bold" />
 
     </LinearLayout>
-
 </ScrollView>
