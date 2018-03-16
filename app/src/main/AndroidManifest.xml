@@ -18,7 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.base_activities.BottomNavigationActivity"></activity>
+        <activity android:name=".ui.base_activities.BottomNavigationActivity" />
+        <activity android:name=".ui.UserProfileActivity" />
+        <activity android:name=".ui.SignUpActivity"></activity>
     </application>
 
 </manifest>

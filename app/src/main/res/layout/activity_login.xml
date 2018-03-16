@@ -61,7 +61,7 @@
             android:textColor="@color/iron" />
 
         <com.dd.CircularProgressButton
-            android:id="@+id/btn_signin"
+            android:id="@+id/btn_signIn"
             android:layout_width="196dp"
             android:layout_height="64dp"
             android:layout_gravity="center"

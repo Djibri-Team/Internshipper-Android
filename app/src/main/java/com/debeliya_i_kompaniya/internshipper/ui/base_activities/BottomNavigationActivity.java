@@ -8,11 +8,15 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.debeliya_i_kompaniya.internshipper.R;
+import com.debeliya_i_kompaniya.internshipper.constants.BottomNavOptions;
 import com.debeliya_i_kompaniya.internshipper.constants.StartConstants;
+import com.debeliya_i_kompaniya.internshipper.ui.MainActivity;
+import com.debeliya_i_kompaniya.internshipper.ui.OfferListActivity;
+import com.debeliya_i_kompaniya.internshipper.ui.UserProfileActivity;
 
 public abstract class BottomNavigationActivity extends BaseActivity {
     BottomNavigationView bottomNavigationView;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +51,21 @@ public abstract class BottomNavigationActivity extends BaseActivity {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
+                        item.setChecked(true);
                         switch (item.getItemId()) {
-
                             case R.id.nav_button_list:
-                                //TODO : IMPLEMENT ME!
+                                startActivity(OfferListActivity.getIntent(getBaseContext(),
+                                        BottomNavOptions.OFFERLIST));
                                 break;
 
                             case R.id.nav_button_home:
-                                //TODO: IMPLEMENT ME!
+                                startActivity(MainActivity.getIntent(getBaseContext(),
+                                        BottomNavOptions.HOME));
                                 break;
 
                             case R.id.nav_button_profile:
-                                //TODO: IMPLEMENT ME!
+                                startActivity(UserProfileActivity.getIntent(getBaseContext(),
+                                        BottomNavOptions.PROFILE));
                                 break;
                         }
 
