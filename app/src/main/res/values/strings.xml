@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Internshipper</string>
+    <string name="welcome_text">Welcome!</string>
+    <string name="username_text">Username</string>
+    <string name="password_text">Password</string>
+    <string name="forgot_password_text">Forgot password?</string>
+    <string name="signin_text">Sign in</string>
+    <string name="complete">Complete</string>
+    <string name="error">Error</string>
+    <string name="no_account_text">Don\'t have an account yet?</string>
+    <string name="signup_text">Sign up</string>
 </resources>
