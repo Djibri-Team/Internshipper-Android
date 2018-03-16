@@ -7,4 +7,5 @@
     <color name="black">#000000</color>
     <color name="iron">#535d60</color>
     <color name="white">#FFFFFF</color>
+    <color name="transparent">#80FFFFFF</color>
 </resources>

@@ -27,6 +27,16 @@
                 app:civ_border_width="2dp"
                 app:civ_border_color="#000000"/>
 
+            <ImageButton
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/save_icon"
+                android:scaleType="fitCenter"
+                android:background=""
+                android:layout_alignParentEnd="true"/>
+
         </RelativeLayout>
 
         <LinearLayout
