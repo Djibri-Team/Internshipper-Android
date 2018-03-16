@@ -1,11 +1,11 @@
-package com.debeliya_i_kompaniya.internshipper;
+package com.debeliya_i_kompaniya.internshipper.ui.base_activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import butterknife.ButterKnife;
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
