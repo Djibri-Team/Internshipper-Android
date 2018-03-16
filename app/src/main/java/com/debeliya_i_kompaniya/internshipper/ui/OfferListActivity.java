@@ -4,12 +4,22 @@ package com.debeliya_i_kompaniya.internshipper.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.StartConstants;
+import com.debeliya_i_kompaniya.internshipper.models.Offer;
 import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BottomNavigationActivity;
+import com.debeliya_i_kompaniya.internshipper.view_utils.OfferListRecyclerViewAdapter;
+
+import java.util.ArrayList;
+
+import butterknife.BindView;
 
 public class OfferListActivity extends BottomNavigationActivity {
+    @BindView(R.id.rv_offer_list) RecyclerView recyclerView;
+    private OfferListRecyclerViewAdapter adapter;
 
     public static  Intent getIntent(Context context, int bottomNavOption) {
         Intent intent = new Intent(context, MainActivity.class);
@@ -22,6 +32,19 @@ public class OfferListActivity extends BottomNavigationActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offer_list);
+
+        configureRecyclerView();
+    }
+
+    private void configureRecyclerView() {
+        adapter = new OfferListRecyclerViewAdapter(getAllOffers());
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+    }
+
+    private ArrayList<Offer> getAllOffers() {
+        return null;
+        //TODO: IMPLEMENT ME!
     }
 
 }

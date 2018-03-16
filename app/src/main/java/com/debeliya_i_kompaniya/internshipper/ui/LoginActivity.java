@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.dd.CircularProgressButton;
 import com.debeliya_i_kompaniya.internshipper.R;
+import com.debeliya_i_kompaniya.internshipper.constants.BottomNavOptions;
 import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BaseActivity;
 
 import butterknife.BindView;
@@ -34,6 +35,8 @@ public class LoginActivity extends BaseActivity {
     void signIn() {
         getUserDataFromFields();
         //TODO: Implement this!
+
+        startActivity(OfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
     }
 
     private void getUserDataFromFields() {
