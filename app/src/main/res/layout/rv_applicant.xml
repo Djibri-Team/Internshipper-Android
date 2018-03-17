@@ -20,8 +20,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:id="@+id/offer_job_name"
-                android:text="Software engineer"
+                android:id="@+id/tv_applicant_name"
+                android:text="Ivan Ganchev"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:textSize="25sp"
@@ -30,13 +30,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:textColor="@color/black"
-                android:text="Melon AD"
+                android:text="vanibani@abv.bg"
                 android:textSize="17sp"
-                android:id="@+id/offer_company_name"
+                android:id="@+id/tv_applicant_email"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/offer_job_name"
-                android:paddingStart="40sp"
-                android:paddingLeft="40sp" />
+                android:layout_below="@+id/tv_applicant_name"
+                />
 
         </RelativeLayout>
 

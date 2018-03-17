@@ -1,8 +1,6 @@
 package com.debeliya_i_kompaniya.internshipper.ui;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,8 +8,6 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.dd.CircularProgressButton;
-import com.debeliya_i_kompaniya.internshipper.InternshipperApplication;
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.BottomNavOptions;
 import com.debeliya_i_kompaniya.internshipper.enums.JobCategory;
@@ -36,7 +32,7 @@ public class AddOfferActivity extends BaseActivity {
 
     @OnClick(R.id.ib_back_button)
     void goBackToAllOffers() {
-        startActivity(AllOffers.getIntent(this, BottomNavOptions.OFFERLIST));
+        startActivity(AllOffersActivity.getIntent(this, BottomNavOptions.OFFERLIST));
     }
 
     private RadioButton rb;
@@ -50,7 +46,7 @@ public class AddOfferActivity extends BaseActivity {
         if (!checkIfFieldsAreEmpty()) {
             saveOfferToDatabase(createOffer());
 
-            startActivity(AllOffers.getIntent(this, BottomNavOptions.OFFERLIST));
+            startActivity(AllOffersActivity.getIntent(this, BottomNavOptions.OFFERLIST));
             finish();
         }
     }
@@ -67,7 +63,7 @@ public class AddOfferActivity extends BaseActivity {
         String description = etDescription.getText().toString();
         JobCategory category = jobCategory;
 
-        Offer offer = new Offer(title, companyName, duration, workingHours, description, category);
+        Offer offer = new Offer(1 ,title, companyName, duration, workingHours, description, category);
 
         return offer;
     }

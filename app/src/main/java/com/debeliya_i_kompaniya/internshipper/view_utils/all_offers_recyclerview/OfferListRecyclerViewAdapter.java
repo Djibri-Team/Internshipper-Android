@@ -11,10 +11,6 @@ import com.debeliya_i_kompaniya.internshipper.view_utils.my_offers_recyclerview.
 
 import java.util.ArrayList;
 
-/**
- * Created by Stoyan-Ivanov on 17.3.2018 г..
- */
-
 public class OfferListRecyclerViewAdapter extends RecyclerView.Adapter<OfferViewHolder> {
     ArrayList<Offer> allOffers;
     OnClickOffer listener;

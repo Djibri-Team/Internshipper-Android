@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -44,6 +45,12 @@ public class LoginActivity extends BaseActivity {
             }
             getUserFromDatabase();
         }
+
+        getUserFromDatabase();
+        getUserDataFromFields();
+        //TODO: Implement this!
+
+        startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
     }
 
     private void getUserFromDatabase() {
@@ -61,6 +68,10 @@ public class LoginActivity extends BaseActivity {
         editor.putString("email", user.getEmail());
         editor.putString("password", user.getPassword());
         editor.putString("userRole", user.getUserRole().toString());
+
+        editor.apply();
+
+        Log.d("zax", "saveToSharedPreferences: " + user.getUserRole().toString());
     }
 
     private boolean checkIfFieldsAreEmpty() {

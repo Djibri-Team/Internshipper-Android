@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.BottomNavOptions;
 import com.debeliya_i_kompaniya.internshipper.constants.StartConstants;
-import com.debeliya_i_kompaniya.internshipper.ui.AllOffers;
+import com.debeliya_i_kompaniya.internshipper.ui.AllOffersActivity;
 import com.debeliya_i_kompaniya.internshipper.ui.MyOfferListActivity;
 import com.debeliya_i_kompaniya.internshipper.ui.UserProfileActivity;
 
@@ -52,7 +52,7 @@ public abstract class BottomNavigationActivity extends BaseActivity {
 
                         switch (item.getItemId()) {
                             case R.id.nav_button_list:
-                                startActivity(AllOffers.getIntent(getBaseContext(),
+                                startActivity(AllOffersActivity.getIntent(getBaseContext(),
                                         BottomNavOptions.OFFERLIST));
                                 break;
 
