@@ -79,6 +79,40 @@
         android:layout_below="@id/et_working_hours"
         android:gravity="top"
         android:layout_centerHorizontal="true"/>
+    
+    <LinearLayout
+        android:layout_width="308dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_description"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true">
+        
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Software"
+                />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hardware"
+                />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Embedded"
+                />
+
+        </RadioGroup>
+        
+    </LinearLayout>
 
     <Button
         android:layout_width="100sp"
