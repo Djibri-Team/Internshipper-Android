@@ -21,6 +21,8 @@
         <activity android:name=".ui.UserProfileActivity" />
         <activity android:name=".ui.SignUpActivity" />
         <activity android:name=".ui.AddOfferActivity"></activity>
+        <activity android:name=".ui.EmployerHomePageActivity"></activity>
+        <activity android:name=".ui.ApplicantsActivity"></activity>
     </application>
 
 </manifest>

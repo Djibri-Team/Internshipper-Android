@@ -116,4 +116,18 @@ public class DataProvider {
 
         return myOffers;
     }
+
+    public ArrayList<Offer> getAllEmployerOffers() {
+        ArrayList<Offer> allEmployerOffers= new ArrayList<>();
+        allEmployerOffers.add(new Offer(
+                1,
+                "Q&A engineer",
+                "Zdoyan CO",
+                "2 weeks",
+                "8 hours",
+                "Qkata rabota",
+                JobCategory.SOFTWARE));
+
+        return allEmployerOffers;
+    }
 }

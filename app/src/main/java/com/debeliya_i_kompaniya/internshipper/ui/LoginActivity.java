@@ -29,6 +29,7 @@ public class LoginActivity extends BaseActivity {
 
     private String email;
     private String password;
+    private String userRole;
 
     @OnClick(R.id.tv_signup)
     void startRegisterActivity() {
@@ -41,7 +42,8 @@ public class LoginActivity extends BaseActivity {
         if (!checkIfFieldsAreEmpty()) {
             getUserDataFromFields();
             if(DataProvider.getInstance().loginUser(new LoginModel(email, password))) {
-                startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
+                Log.d("zax", "signIn: " + userRole);
+
             }
             getUserFromDatabase();
         }
@@ -50,7 +52,13 @@ public class LoginActivity extends BaseActivity {
         getUserDataFromFields();
         //TODO: Implement this!
 
-        startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
+        if (userRole.equals("EMPLOYER")) {
+
+            startActivity(new Intent(this, EmployerHomePageActivity.class));
+        }
+        else {
+            startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
+        }
     }
 
     private void getUserFromDatabase() {
@@ -68,6 +76,8 @@ public class LoginActivity extends BaseActivity {
         editor.putString("email", user.getEmail());
         editor.putString("password", user.getPassword());
         editor.putString("userRole", user.getUserRole().toString());
+
+        userRole = user.getUserRole().toString();
 
         editor.apply();
 
