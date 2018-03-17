@@ -7,8 +7,7 @@
     tools:context="com.debeliya_i_kompaniya.internshipper.ui.AllOffers">
 
 
-    <include
-        layout="@layout/bottom_navigation" />
+    <include layout="@layout/bottom_navigation" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -44,7 +43,7 @@
             android:textColor="@color/white" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_all_offers"
+            android:id="@+id/rv_my_offers"
             android:layout_marginTop="40dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
