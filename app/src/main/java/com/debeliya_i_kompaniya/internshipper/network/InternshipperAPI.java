@@ -5,15 +5,12 @@ import com.debeliya_i_kompaniya.internshipper.models.OfferWithStatus;
 import com.debeliya_i_kompaniya.internshipper.models.User;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 /**
  * Created by Stoyan-Ivanov on 16.3.2018 г..
@@ -21,7 +18,7 @@ import retrofit2.http.Query;
 
 public interface InternshipperAPI {
 
-    @POST("/login")
+    @GET("/login")
     Call<User> loginUser(@Body String email, @Body String password);
 
     @POST("/register")

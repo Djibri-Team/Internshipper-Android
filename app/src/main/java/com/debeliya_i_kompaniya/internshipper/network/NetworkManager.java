@@ -32,4 +32,8 @@ public class NetworkManager {
         api = retrofit.create(InternshipperAPI.class);
     }
 
+    public InternshipperAPI getAPI() {
+        return api;
+    }
+
 }

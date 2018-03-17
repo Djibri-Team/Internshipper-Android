@@ -6,6 +6,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.dd.CircularProgressButton;
+import com.debeliya_i_kompaniya.internshipper.DataProvider;
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.BottomNavOptions;
 import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BaseActivity;
@@ -33,21 +34,18 @@ public class LoginActivity extends BaseActivity {
     @OnClick(R.id.btn_signIn)
     void signIn() {
         if (!checkIfFieldsAreEmpty()) {
-
+            getUserDataFromFields();
+            if(DataProvider.getInstance().loginUser(email, password)) {
+                startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
+            }
         }
-        getUserDataFromFields();
-        //TODO: Implement this!
-
-        startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
     }
 
     private boolean checkIfFieldsAreEmpty() {
         if (etEmail.getText().toString().equals("") || etPassword.getText().toString().equals("")) {
             return true;
         }
-        else {
-            return false;
-        }
+        return false;
     }
 
     private void getUserDataFromFields() {
