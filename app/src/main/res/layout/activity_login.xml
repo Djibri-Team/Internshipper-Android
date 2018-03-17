@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
-        android:paddingTop="45dp">
+        android:paddingTop="20dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -62,8 +62,8 @@
 
         <com.dd.CircularProgressButton
             android:id="@+id/btn_signIn"
-            android:layout_width="196dp"
-            android:layout_height="64dp"
+            android:layout_width="166dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:textColor="@color/white"

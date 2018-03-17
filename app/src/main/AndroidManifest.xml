@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.MainActivity" />
-        <activity android:name=".ui.base_activities.BaseActivity" />
+        <!--<activity android:name=".ui.base_activities.BaseActivity" />-->
         <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.base_activities.BottomNavigationActivity" />
+        <!--<activity android:name=".ui.base_activities.BottomNavigationActivity" />-->
         <activity android:name=".ui.UserProfileActivity" />
         <activity android:name=".ui.SignUpActivity"></activity>
     </application>
