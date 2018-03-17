@@ -1,8 +1,10 @@
 package com.debeliya_i_kompaniya.internshipper.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.dd.CircularProgressButton;
 import com.debeliya_i_kompaniya.internshipper.InternshipperApplication;
@@ -19,6 +21,7 @@ public class SignUpActivity extends BaseActivity {
     @BindView(R.id.et_password) EditText etPassword;
     @BindView(R.id.et_confirm_password) EditText etConfirmPassword;
     @BindView(R.id.btn_signup) CircularProgressButton btnSignUp;
+    @BindView(R.id.tv_signin) TextView tvSignIn;
 
     @OnClick(R.id.btn_signup)
     void userSignUp() {
@@ -27,6 +30,12 @@ public class SignUpActivity extends BaseActivity {
         } else {
             //SIGN UP!!
         }
+    }
+
+    @OnClick(R.id.tv_signin)
+    void transferToLoginActivity() {
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
     }
 
     @Override

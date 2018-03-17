@@ -33,6 +33,7 @@
             />
 
         <Button
+            android:id="@+id/btn_apply_now"
             android:layout_width="120sp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/not_applied_text"

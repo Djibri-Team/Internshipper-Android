@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 
 import com.dd.CircularProgressButton;
@@ -24,6 +25,12 @@ public class AddOfferActivity extends BaseActivity {
     @BindView(R.id.rb_hardware) RadioButton rbHardware;
     @BindView(R.id.rb_embedded) RadioButton rbEmbedded;
     @BindView(R.id.btn_add_offer) Button btnAddOffer;
+    @BindView(R.id.ib_back_button) ImageButton btnBack;
+
+    @OnClick(R.id.ib_back_button)
+    void goBackToAllOffers() {
+        startActivity(AllOffers.getIntent(this, BottomNavOptions.OFFERLIST));
+    }
 
     @OnClick(R.id.btn_add_offer)
     void addOffer() {
