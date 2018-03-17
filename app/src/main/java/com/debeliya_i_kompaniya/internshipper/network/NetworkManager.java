@@ -21,7 +21,7 @@ public class NetworkManager {
     }
 
     private NetworkManager() {
-        final String url = "";
+        final String url = "http://localhost:3000";
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(url)

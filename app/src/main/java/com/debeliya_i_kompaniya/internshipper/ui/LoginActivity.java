@@ -43,10 +43,10 @@ public class LoginActivity extends BaseActivity {
 
     private boolean checkIfFieldsAreEmpty() {
         if (etEmail.getText().toString().equals("") || etPassword.getText().toString().equals("")) {
-            return true
+            return true;
         }
         else {
-            return false
+            return false;
         }
     }
 

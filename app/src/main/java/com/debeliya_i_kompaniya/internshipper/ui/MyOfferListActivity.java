@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.debeliya_i_kompaniya.internshipper.DataProvider;
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.StartConstants;
 import com.debeliya_i_kompaniya.internshipper.enums.JobCategory;
@@ -71,18 +72,7 @@ public class MyOfferListActivity extends BottomNavigationActivity {
     }
 
     private ArrayList<OfferWithStatus> getMyOffers() {
-        ArrayList<OfferWithStatus> myOffers= new ArrayList<>();
-        myOffers.add(new OfferWithStatus(new Offer(
-                "Software engineer",
-                "Melon AD",
-                "2 weeks",
-                "8 hours",
-                "Cool meme",
-                JobCategory.SOFTWARE),
-                "PENDING"));
-        //TODO: IMPLEMENT ME!
-
-        return myOffers;
+        return DataProvider.getInstance().getMyOffers();
     }
 
 }
