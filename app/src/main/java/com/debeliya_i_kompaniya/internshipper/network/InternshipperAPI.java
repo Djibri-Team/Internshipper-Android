@@ -26,8 +26,8 @@ public interface InternshipperAPI {
     @POST("/register")
     Call<User> registerUser(@Body User user);
 
-    @GET("/user/offers")
-    Call<ArrayList<OfferWithStatus>> getUserOffers();
+    @GET("/user/offers/")
+    Call<ArrayList<OfferWithStatus>> getUserOffers(@Query("userId") int userId);
 
     @GET("/publisher/offers")
     Call<ArrayList<Offer>> getPublisherOffers();

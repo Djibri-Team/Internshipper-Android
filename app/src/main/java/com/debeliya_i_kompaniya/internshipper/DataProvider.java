@@ -1,5 +1,7 @@
 package com.debeliya_i_kompaniya.internshipper;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.debeliya_i_kompaniya.internshipper.enums.JobCategory;
@@ -20,6 +22,8 @@ import retrofit2.Response;
 public class DataProvider {
     private static DataProvider dataProvider;
     private User user;
+    private ArrayList<OfferWithStatus> myOffers= new ArrayList<>();
+    private ArrayList<Offer> allOffers= new ArrayList<>();
 
     public static DataProvider getInstance() {
         if (dataProvider == null) {
@@ -85,34 +89,58 @@ public class DataProvider {
                 "azsumgei",
                 UserRole.STUDENT.toString()));
 
+        
+
         return allUsers;
     }
 
     public ArrayList<Offer> getAllOffers() {
-        ArrayList<Offer> allOffers= new ArrayList<>();
-        allOffers.add(new Offer(
-                1,
-                "Software engineer",
-                "Zguri CO",
-                "2 weeks",
-                "8 hours",
-                "Nice meme",
-                JobCategory.SOFTWARE));
+//        ArrayList<Offer> allOffers= new ArrayList<>();
+//
+//        allOffers.add(new Offer(
+//                1,
+//                "Software engineer",
+//                "Zguri CO",
+//                "2 weeks",
+//                "8 hours",
+//                "Nice meme",
+//                JobCategory.SOFTWARE));
+
+        Call<ArrayList<Offer>> allOffersCall = NetworkManager.getInstance().getAPI().getAllOffers();
+
+        allOffersCall.enqueue(new Callback<ArrayList<Offer>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Offer>> call, Response<ArrayList<Offer>> response) {
+                if(response.isSuccessful()) {
+                    allOffers = response.body();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Offer>> call, Throwable t) {
+
+            }
+        });
 
         return allOffers;
     }
 
     public ArrayList<OfferWithStatus> getMyOffers() {
-        ArrayList<OfferWithStatus> myOffers= new ArrayList<>();
-        myOffers.add(new OfferWithStatus(new Offer(
-                2,
-                "Software engineer",
-                "Melon AD",
-                "2 weeks",
-                "8 hours",
-                "Cool meme",
-                JobCategory.SOFTWARE),
-                "ACCEPTED"));
+        Call<ArrayList<OfferWithStatus>> myOffersCall = NetworkManager.getInstance().getAPI().getUserOffers(user.getId());
+
+        myOffersCall.enqueue(new Callback<ArrayList<OfferWithStatus>>() {
+            @Override
+            public void onResponse(Call<ArrayList<OfferWithStatus>> call, Response<ArrayList<OfferWithStatus>> response) {
+                if(response.isSuccessful()) {
+                    myOffers = response.body();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<OfferWithStatus>> call, Throwable t) {
+
+            }
+        });
 
         return myOffers;
     }
