@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.debeliya_i_kompaniya.internshipper.DataProvider;
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.StartConstants;
 import com.debeliya_i_kompaniya.internshipper.models.Offer;
@@ -55,10 +56,6 @@ public class AllOffers extends BottomNavigationActivity {
     }
 
     private ArrayList<Offer> getAllOffers() {
-        ArrayList<Offer> allOffers= new ArrayList<>();
-        allOffers.add(new Offer("title", "company", 3, "test"));
-        //TODO: IMPLEMENT ME!
-
-        return allOffers;
+        return DataProvider.getInstance().getAllOffers();
     }
 }
