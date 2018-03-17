@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
-        android:paddingTop="45dp">
+        android:paddingTop="20dp">
 
         <TextView
             android:id="@+id/tv_create_acc"
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:text="@string/create_acc_text"
             android:textAlignment="center"
-            android:textSize="35sp"
+            android:textSize="25sp"
             android:layout_marginBottom="30dp"
             android:textColor="@color/black"/>
 
@@ -98,12 +98,10 @@
 
         </RelativeLayout>
 
-
-
         <com.dd.CircularProgressButton
             android:id="@+id/btn_signup"
-            android:layout_width="196dp"
-            android:layout_height="64dp"
+            android:layout_width="166dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginTop="32dp"
             android:textColor="@color/white"
