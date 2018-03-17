@@ -1,8 +1,10 @@
 package com.debeliya_i_kompaniya.internshipper;
 
 import com.debeliya_i_kompaniya.internshipper.enums.JobCategory;
+import com.debeliya_i_kompaniya.internshipper.enums.UserRole;
 import com.debeliya_i_kompaniya.internshipper.models.Offer;
 import com.debeliya_i_kompaniya.internshipper.models.OfferWithStatus;
+import com.debeliya_i_kompaniya.internshipper.models.User;
 
 import java.util.ArrayList;
 
@@ -14,6 +16,12 @@ public class DataProvider {
             dataProvider = new DataProvider();
         }
         return dataProvider;
+    }
+
+    public User getUser() {
+        User user = new User("Zachary", "Georgiev", "zguri@abv.bg", "ivanegei", UserRole.EMPLOYER);
+
+        return user;
     }
 
 
@@ -38,7 +46,7 @@ public class DataProvider {
                 "8 hours",
                 "Cool meme",
                 JobCategory.SOFTWARE),
-                "PENDING"));
+                "ACCEPTED"));
 
         return myOffers;
     }
