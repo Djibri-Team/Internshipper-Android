@@ -6,17 +6,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_add_internship"
+    <RelativeLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Add an internship"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp"
-        android:layout_centerHorizontal="true"/>
+        android:id="@+id/rl_nav_menu">
+        
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:background="@null"
+            android:src="@drawable/ic_back_button"
+            />
+
+        <TextView
+            android:id="@+id/tv_add_internship"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            android:text="Add an internship"
+            android:textAlignment="center"
+            android:layout_centerVertical="true"
+            android:textSize="30sp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
 
     <EditText
         android:layout_marginTop="60dp"
@@ -28,7 +49,7 @@
         android:textColor="@color/black"
         android:textColorHint="@color/iron"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/tv_add_internship"
+        android:layout_below="@id/rl_nav_menu"
         />
 
     <EditText
