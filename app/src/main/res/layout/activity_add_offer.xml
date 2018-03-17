@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_add_internship"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Add an internship"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:layout_marginTop="60dp"
+        android:id="@+id/et_position"
+        android:layout_width="309dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_style"
+        android:hint="Position"
+        android:textColor="@color/black"
+        android:textColorHint="@color/iron"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tv_add_internship"
+        />
+
+    <EditText
+        android:layout_marginTop="5dp"
+        android:id="@+id/et_company"
+        android:layout_width="308dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_style"
+        android:hint="Company name"
+        android:textColor="@color/black"
+        android:textColorHint="@color/iron"
+        android:layout_below="@id/et_position"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:layout_marginTop="5dp"
+        android:id="@+id/et_duration"
+        android:layout_width="308dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_style"
+        android:hint="Duration"
+        android:textColor="@color/black"
+        android:textColorHint="@color/iron"
+        android:layout_below="@id/et_company"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:layout_marginTop="5dp"
+        android:id="@+id/et_working_hours"
+        android:layout_width="308dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_style"
+        android:hint="Working hours"
+        android:textColor="@color/black"
+        android:textColorHint="@color/iron"
+        android:layout_below="@id/et_duration"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:layout_marginTop="5dp"
+        android:id="@+id/et_description"
+        android:layout_width="308dp"
+        android:layout_height="170dp"
+        android:background="@drawable/edittext_style"
+        android:hint="Description"
+        android:textColor="@color/black"
+        android:textColorHint="@color/iron"
+        android:layout_below="@id/et_working_hours"
+        android:gravity="top"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_width="100sp"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/themeBlue"
+        android:background="@drawable/roundedbutton"
+        />
+
+</RelativeLayout>
