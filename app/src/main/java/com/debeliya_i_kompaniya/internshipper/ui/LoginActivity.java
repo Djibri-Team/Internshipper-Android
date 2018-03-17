@@ -32,10 +32,22 @@ public class LoginActivity extends BaseActivity {
 
     @OnClick(R.id.btn_signIn)
     void signIn() {
+        if (!checkIfFieldsAreEmpty()) {
+
+        }
         getUserDataFromFields();
         //TODO: Implement this!
 
         startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
+    }
+
+    private boolean checkIfFieldsAreEmpty() {
+        if (etEmail.getText().toString().equals("") || etPassword.getText().toString().equals("")) {
+            return true
+        }
+        else {
+            return false
+        }
     }
 
     private void getUserDataFromFields() {

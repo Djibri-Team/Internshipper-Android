@@ -1,23 +1,24 @@
 package com.debeliya_i_kompaniya.internshipper.models;
 
-/**
- * Created by Stoyan-Ivanov on 16.3.2018 г..
- */
+import com.debeliya_i_kompaniya.internshipper.enums.JobCategory;
 
 public class Offer {
     private String title;
     private String company;
-    private int duration;
+    private String duration;
+    private String workingHours;
     private String description;
-    private int type;
+    private JobCategory type;
 
     public Offer() {}
 
-    public Offer(String title, String company, int duration, String description) {
+    public Offer(String title, String company, String duration, String workingHours, String description, JobCategory type) {
         this.title = title;
         this.company = company;
         this.duration = duration;
+        this.workingHours = workingHours;
         this.description = description;
+        this.type = type;
     }
 
     public String getTitle() {
@@ -28,11 +29,19 @@ public class Offer {
         return company;
     }
 
-    public int getDuration() {
+    public String getDuration() {
         return duration;
     }
 
     public String getDescription() {
         return description;
+    }
+
+    public JobCategory getType() {
+        return type;
+    }
+
+    public String getWorkingHours() {
+        return workingHours;
     }
 }

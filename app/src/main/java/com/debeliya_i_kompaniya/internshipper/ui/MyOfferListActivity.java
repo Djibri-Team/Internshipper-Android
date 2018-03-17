@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.StartConstants;
+import com.debeliya_i_kompaniya.internshipper.enums.JobCategory;
 import com.debeliya_i_kompaniya.internshipper.models.Offer;
 import com.debeliya_i_kompaniya.internshipper.models.OfferWithStatus;
 import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BottomNavigationActivity;
@@ -71,7 +72,14 @@ public class MyOfferListActivity extends BottomNavigationActivity {
 
     private ArrayList<OfferWithStatus> getMyOffers() {
         ArrayList<OfferWithStatus> myOffers= new ArrayList<>();
-        myOffers.add(new OfferWithStatus(new Offer("title", "company", 3, "test"), "PENDING"));
+        myOffers.add(new OfferWithStatus(new Offer(
+                "Software engineer",
+                "Melon AD",
+                "2 weeks",
+                "8 hours",
+                "Cool meme",
+                JobCategory.SOFTWARE),
+                "PENDING"));
         //TODO: IMPLEMENT ME!
 
         return myOffers;

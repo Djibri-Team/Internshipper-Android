@@ -15,6 +15,7 @@ import com.debeliya_i_kompaniya.internshipper.InternshipperApplication;
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.BottomNavOptions;
 import com.debeliya_i_kompaniya.internshipper.enums.JobCategory;
+import com.debeliya_i_kompaniya.internshipper.models.Offer;
 import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BaseActivity;
 
 import butterknife.BindView;
@@ -47,9 +48,28 @@ public class AddOfferActivity extends BaseActivity {
     @OnClick(R.id.btn_add_offer)
     void addOffer() {
         if (!checkIfFieldsAreEmpty()) {
+            saveOfferToDatabase(createOffer());
+
             startActivity(AllOffers.getIntent(this, BottomNavOptions.OFFERLIST));
             finish();
         }
+    }
+
+    private void saveOfferToDatabase(Offer offer) {
+    }
+
+    private Offer createOffer() {
+
+        String title = etJobPosition.getText().toString();
+        String companyName = etCompanyName.getText().toString();
+        String duration = etDuration.getText().toString();
+        String workingHours = etWorkingHours.getText().toString();
+        String description = etDescription.getText().toString();
+        JobCategory category = jobCategory;
+
+        Offer offer = new Offer(title, companyName, duration, workingHours, description, category);
+
+        return offer;
     }
 
     public void rbClick(View v) {
@@ -57,7 +77,7 @@ public class AddOfferActivity extends BaseActivity {
 
         rb = findViewById(radioButtonID);
 
-        jobCategory = JobCategory.StringToJobCategory(rb.getText().toString());
+        jobCategory = JobCategory.stringToJobCategory(rb.getText().toString());
         isCategorySet = true;
     }
 

@@ -6,7 +6,7 @@ public enum JobCategory {
     HARDWARE,
     EMBEDDED;
 
-    public static JobCategory StringToJobCategory(String jobCategory) {
+    public static JobCategory stringToJobCategory(String jobCategory) {
         switch (jobCategory) {
             case "SOFTWARE": return SOFTWARE;
             case "HARDWARE": return HARDWARE;

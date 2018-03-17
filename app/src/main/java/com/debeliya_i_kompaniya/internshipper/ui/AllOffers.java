@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.StartConstants;
+import com.debeliya_i_kompaniya.internshipper.enums.JobCategory;
 import com.debeliya_i_kompaniya.internshipper.models.Offer;
 import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BottomNavigationActivity;
 import com.debeliya_i_kompaniya.internshipper.view_utils.all_offers_recyclerview.OfferListRecyclerViewAdapter;
@@ -56,7 +57,14 @@ public class AllOffers extends BottomNavigationActivity {
 
     private ArrayList<Offer> getAllOffers() {
         ArrayList<Offer> allOffers= new ArrayList<>();
-        allOffers.add(new Offer("title", "company", 3, "test"));
+        allOffers.add(new Offer(
+                "Software engineer",
+                "Zguri CO",
+                "2 weeks",
+                "8 hours",
+                "Nice meme",
+                JobCategory.SOFTWARE));
+//        allOffers.add(new Offer("title", "company", 3, "test"));
         //TODO: IMPLEMENT ME!
 
         return allOffers;
