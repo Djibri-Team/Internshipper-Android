@@ -1,4 +1,4 @@
-package com.debeliya_i_kompaniya.internshipper.view_utils;
+package com.debeliya_i_kompaniya.internshipper.view_utils.my_offers_recyclerview;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.models.Offer;
+import com.debeliya_i_kompaniya.internshipper.view_utils.OnClickOffer;
 
 import java.util.ArrayList;
 
@@ -14,28 +15,28 @@ import java.util.ArrayList;
  * Created by Stoyan-Ivanov on 16.3.2018 г..
  */
 
-public class OfferListRecyclerViewAdapter extends RecyclerView.Adapter<OfferViewHolder> {
+public class MyOfferListRecyclerViewAdapter extends RecyclerView.Adapter<MyOfferViewHolder> {
     private OnClickOffer listener;
     private ArrayList<Offer> offers = new ArrayList<>();
 
-    public OfferListRecyclerViewAdapter(ArrayList<Offer> offers, OnClickOffer listener) {
+    public MyOfferListRecyclerViewAdapter(ArrayList<Offer> offers, OnClickOffer listener) {
         this.offers = offers;
         this.listener = listener;
         notifyDataSetChanged();
     }
 
     @Override
-    public OfferViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyOfferViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.rv_my_offer_item, parent, false);
 
 
 
-        return new OfferViewHolder(view);
+        return new MyOfferViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(OfferViewHolder holder, int position) {
+    public void onBindViewHolder(MyOfferViewHolder holder, int position) {
            holder.bind(offers.get(position), listener);
     }
 

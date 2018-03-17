@@ -1,4 +1,4 @@
-package com.debeliya_i_kompaniya.internshipper.view_utils;
+package com.debeliya_i_kompaniya.internshipper.view_utils.all_offers_recyclerview;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -6,20 +6,20 @@ import android.widget.TextView;
 
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.models.Offer;
+import com.debeliya_i_kompaniya.internshipper.view_utils.OnClickOffer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Stoyan-Ivanov on 16.3.2018 г..
+ * Created by Stoyan-Ivanov on 17.3.2018 г..
  */
 
 public class OfferViewHolder extends RecyclerView.ViewHolder {
-    @BindView(R.id.job_title)
+    @BindView(R.id.offer_job_name)
     TextView tvJobTitle;
-    @BindView(R.id.company_name)
+    @BindView(R.id.offer_company_name)
     TextView tvCompanyName;
-
 
     public OfferViewHolder(View itemView) {
         super(itemView);
@@ -28,6 +28,7 @@ public class OfferViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(final Offer offer, final OnClickOffer listener) {
+        /// REPLACE offer object
         tvJobTitle.setText(offer.getTitle());
         tvCompanyName.setText(offer.getCompany());
 

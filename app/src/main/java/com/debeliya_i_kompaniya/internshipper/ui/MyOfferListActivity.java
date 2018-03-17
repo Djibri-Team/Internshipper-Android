@@ -11,7 +11,7 @@ import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.StartConstants;
 import com.debeliya_i_kompaniya.internshipper.models.Offer;
 import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BottomNavigationActivity;
-import com.debeliya_i_kompaniya.internshipper.view_utils.OfferListRecyclerViewAdapter;
+import com.debeliya_i_kompaniya.internshipper.view_utils.my_offers_recyclerview.MyOfferListRecyclerViewAdapter;
 import com.debeliya_i_kompaniya.internshipper.view_utils.OnClickOffer;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import butterknife.BindView;
 
 public class MyOfferListActivity extends BottomNavigationActivity {
     @BindView(R.id.rv_my_offers) RecyclerView recyclerView;
-    private OfferListRecyclerViewAdapter adapter;
+    private MyOfferListRecyclerViewAdapter adapter;
 
     public static  Intent getIntent(Context context, int bottomNavOption) {
         Intent intent = new Intent(context, MyOfferListActivity.class);
@@ -38,7 +38,7 @@ public class MyOfferListActivity extends BottomNavigationActivity {
     }
 
     private void configureRecyclerView() {
-        adapter = new OfferListRecyclerViewAdapter(getMyOffers(), new OnClickOffer() {
+        adapter = new MyOfferListRecyclerViewAdapter(getMyOffers(), new OnClickOffer() {
             @Override
             public void onOfferClick(Offer offer, int position) {
                 //TODO: IMPLEMENT ME!
