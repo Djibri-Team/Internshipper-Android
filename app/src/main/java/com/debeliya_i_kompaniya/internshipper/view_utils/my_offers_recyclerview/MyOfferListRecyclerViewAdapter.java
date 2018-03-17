@@ -11,12 +11,8 @@ import com.debeliya_i_kompaniya.internshipper.view_utils.all_offers_recyclerview
 
 import java.util.ArrayList;
 
-/**
- * Created by Stoyan-Ivanov on 16.3.2018 г..
- */
-
 public class MyOfferListRecyclerViewAdapter extends RecyclerView.Adapter<MyOfferViewHolder> {
-    private OnClickOffer listener;
+    private OnClickMyOffer listener;
     private ArrayList<OfferWithStatus> offers = new ArrayList<>();
 
     public MyOfferListRecyclerViewAdapter(ArrayList<OfferWithStatus> offers, OnClickMyOffer listener) {
@@ -29,8 +25,6 @@ public class MyOfferListRecyclerViewAdapter extends RecyclerView.Adapter<MyOffer
     public MyOfferViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.rv_my_offer_item, parent, false);
-
-
 
         return new MyOfferViewHolder(view);
     }
