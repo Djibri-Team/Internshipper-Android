@@ -9,6 +9,7 @@ public class Offer {
     private String company;
     private int duration;
     private String description;
+    private int type;
 
     public Offer() {}
 

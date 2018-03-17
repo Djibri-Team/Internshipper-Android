@@ -31,7 +31,7 @@ public class AllOffers extends BottomNavigationActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_offers);
+        setContentView(R.layout.activity_my_offer_list);
         configureRecyclerView();
     }
 
