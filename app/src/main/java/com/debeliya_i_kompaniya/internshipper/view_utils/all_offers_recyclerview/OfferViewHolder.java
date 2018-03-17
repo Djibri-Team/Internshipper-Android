@@ -27,7 +27,6 @@ public class OfferViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(final Offer offer, final OnClickOffer listener) {
-        /// REPLACE offer object
         tvJobTitle.setText(offer.getTitle());
         tvCompanyName.setText(offer.getCompany());
 

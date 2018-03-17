@@ -1,9 +1,13 @@
 package com.debeliya_i_kompaniya.internshipper.view_utils.all_offers_recyclerview;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
+import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.models.Offer;
+import com.debeliya_i_kompaniya.internshipper.view_utils.my_offers_recyclerview.MyOfferViewHolder;
 
 import java.util.ArrayList;
 
@@ -11,7 +15,7 @@ import java.util.ArrayList;
  * Created by Stoyan-Ivanov on 17.3.2018 г..
  */
 
-public class OfferListRecyclerViewAdapter extends RecyclerView.Adapter {
+public class OfferListRecyclerViewAdapter extends RecyclerView.Adapter<OfferViewHolder> {
     ArrayList<Offer> allOffers;
     OnClickOffer listener;
 
@@ -21,17 +25,20 @@ public class OfferListRecyclerViewAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+    public OfferViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.rv_item_offer, parent, false);
+
+        return new OfferViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
+    public void onBindViewHolder(OfferViewHolder holder, int position) {
+        holder.bind(allOffers.get(position), listener);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return allOffers.size();
     }
 }
