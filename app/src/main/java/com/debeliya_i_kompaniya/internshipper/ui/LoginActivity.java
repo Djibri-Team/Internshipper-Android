@@ -2,7 +2,6 @@ package com.debeliya_i_kompaniya.internshipper.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -36,7 +35,7 @@ public class LoginActivity extends BaseActivity {
         getUserDataFromFields();
         //TODO: Implement this!
 
-        startActivity(OfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
+        startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
     }
 
     private void getUserDataFromFields() {

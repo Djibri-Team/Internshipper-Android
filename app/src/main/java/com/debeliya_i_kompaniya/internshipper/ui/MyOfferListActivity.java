@@ -12,17 +12,18 @@ import com.debeliya_i_kompaniya.internshipper.constants.StartConstants;
 import com.debeliya_i_kompaniya.internshipper.models.Offer;
 import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BottomNavigationActivity;
 import com.debeliya_i_kompaniya.internshipper.view_utils.OfferListRecyclerViewAdapter;
+import com.debeliya_i_kompaniya.internshipper.view_utils.OnClickOffer;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 
-public class OfferListActivity extends BottomNavigationActivity {
-    @BindView(R.id.rv_offer_list) RecyclerView recyclerView;
+public class MyOfferListActivity extends BottomNavigationActivity {
+    @BindView(R.id.rv_my_offers) RecyclerView recyclerView;
     private OfferListRecyclerViewAdapter adapter;
 
     public static  Intent getIntent(Context context, int bottomNavOption) {
-        Intent intent = new Intent(context, MainActivity.class);
+        Intent intent = new Intent(context, MyOfferListActivity.class);
         intent.putExtra(StartConstants.EXTRA_NAV_OPTION, bottomNavOption);
 
         return intent;
@@ -31,18 +32,23 @@ public class OfferListActivity extends BottomNavigationActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_offer_list);
+        setContentView(R.layout.activity_my_offer_list);
 
         configureRecyclerView();
     }
 
     private void configureRecyclerView() {
-        adapter = new OfferListRecyclerViewAdapter(getAllOffers());
+        adapter = new OfferListRecyclerViewAdapter(getMyOffers(), new OnClickOffer() {
+            @Override
+            public void onOfferClick(Offer offer, int position) {
+                //TODO: IMPLEMENT ME!
+            }
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
 
-    private ArrayList<Offer> getAllOffers() {
+    private ArrayList<Offer> getMyOffers() {
         return null;
         //TODO: IMPLEMENT ME!
     }

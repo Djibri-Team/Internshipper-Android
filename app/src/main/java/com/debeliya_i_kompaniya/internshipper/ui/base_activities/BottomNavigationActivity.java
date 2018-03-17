@@ -1,6 +1,5 @@
 package com.debeliya_i_kompaniya.internshipper.ui.base_activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -10,8 +9,8 @@ import android.view.MenuItem;
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.BottomNavOptions;
 import com.debeliya_i_kompaniya.internshipper.constants.StartConstants;
-import com.debeliya_i_kompaniya.internshipper.ui.MainActivity;
-import com.debeliya_i_kompaniya.internshipper.ui.OfferListActivity;
+import com.debeliya_i_kompaniya.internshipper.ui.AllOffers;
+import com.debeliya_i_kompaniya.internshipper.ui.MyOfferListActivity;
 import com.debeliya_i_kompaniya.internshipper.ui.UserProfileActivity;
 
 public abstract class BottomNavigationActivity extends BaseActivity {
@@ -51,15 +50,14 @@ public abstract class BottomNavigationActivity extends BaseActivity {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                        item.setChecked(true);
                         switch (item.getItemId()) {
                             case R.id.nav_button_list:
-                                startActivity(OfferListActivity.getIntent(getBaseContext(),
+                                startActivity(AllOffers.getIntent(getBaseContext(),
                                         BottomNavOptions.OFFERLIST));
                                 break;
 
                             case R.id.nav_button_home:
-                                startActivity(MainActivity.getIntent(getBaseContext(),
+                                startActivity(MyOfferListActivity.getIntent(getBaseContext(),
                                         BottomNavOptions.HOME));
                                 break;
 

@@ -11,7 +11,7 @@ import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BottomNavigatio
 public class UserProfileActivity extends BottomNavigationActivity {
 
     public static Intent getIntent(Context context, int bottomNavOption) {
-        Intent intent = new Intent(context, MainActivity.class);
+        Intent intent = new Intent(context, UserProfileActivity.class);
         intent.putExtra(StartConstants.EXTRA_NAV_OPTION, bottomNavOption);
 
         return intent;

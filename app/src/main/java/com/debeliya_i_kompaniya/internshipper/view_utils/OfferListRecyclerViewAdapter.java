@@ -15,24 +15,28 @@ import java.util.ArrayList;
  */
 
 public class OfferListRecyclerViewAdapter extends RecyclerView.Adapter<OfferViewHolder> {
-    ArrayList<Offer> offers = new ArrayList<>();
+    private OnClickOffer listener;
+    private ArrayList<Offer> offers = new ArrayList<>();
 
-    public OfferListRecyclerViewAdapter(ArrayList<Offer> offers) {
+    public OfferListRecyclerViewAdapter(ArrayList<Offer> offers, OnClickOffer listener) {
         this.offers = offers;
+        this.listener = listener;
         notifyDataSetChanged();
     }
 
     @Override
     public OfferViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.rv_offer_item, parent, false);
+                .inflate(R.layout.rv_my_offer_item, parent, false);
+
+
 
         return new OfferViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(OfferViewHolder holder, int position) {
-           holder.bind(offers.get(position));
+           holder.bind(offers.get(position), listener);
     }
 
     @Override

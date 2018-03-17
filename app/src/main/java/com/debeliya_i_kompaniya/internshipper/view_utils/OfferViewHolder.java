@@ -27,8 +27,15 @@ public class OfferViewHolder extends RecyclerView.ViewHolder {
         ButterKnife.bind(this, itemView);
     }
 
-    public void bind(Offer offer) {
+    public void bind(final Offer offer, final OnClickOffer listener) {
         tvJobTitle.setText(offer.getTitle());
         tvCompanyName.setText(offer.getCompany());
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onOfferClick(offer, getAdapterPosition());
+            }
+        });
     }
 }
