@@ -38,8 +38,13 @@ public class LoginActivity extends BaseActivity {
     @OnClick(R.id.btn_signIn)
     void signIn() {
         if (!checkIfFieldsAreEmpty()) {
+            getUserDataFromFields();
+            if(DataProvider.getInstance().loginUser(email, password)) {
+                startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
+            }
             getUserFromDatabase();
         }
+
         getUserFromDatabase();
         getUserDataFromFields();
         //TODO: Implement this!
@@ -72,9 +77,7 @@ public class LoginActivity extends BaseActivity {
         if (etEmail.getText().toString().equals("") || etPassword.getText().toString().equals("")) {
             return true;
         }
-        else {
-            return false;
-        }
+        return false;
     }
 
     private void getUserDataFromFields() {
