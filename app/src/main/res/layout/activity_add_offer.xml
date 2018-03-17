@@ -111,12 +111,14 @@
         android:layout_centerHorizontal="true">
         
         <RadioGroup
+            android:id="@+id/rg_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/rb_software"
+                android:onClick="rbClick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Software"
@@ -124,6 +126,7 @@
 
             <RadioButton
                 android:id="@+id/rb_hardware"
+                android:onClick="rbClick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hardware"
@@ -131,6 +134,7 @@
 
             <RadioButton
                 android:id="@+id/rb_embedded"
+                android:onClick="rbClick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Embedded"

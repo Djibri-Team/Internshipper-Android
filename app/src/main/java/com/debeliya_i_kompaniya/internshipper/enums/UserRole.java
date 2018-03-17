@@ -5,12 +5,12 @@ public enum UserRole {
     STUDENT,
     EMPLOYER;
 
-    public static Status StringToUserRole(String userRole) {
+    public static UserRole StringToUserRole(String userRole) {
         switch (userRole) {
             case "STUDENT": return STUDENT;
             case "EMPLOYER": return EMPLOYER;
             default: break;
         }
-        return;
+        return null;
     }
 }
