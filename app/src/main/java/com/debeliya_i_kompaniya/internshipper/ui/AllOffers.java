@@ -27,7 +27,6 @@ public class AllOffers extends BottomNavigationActivity {
     @OnClick(R.id.fab_add_offer)
     void startAddOfferActivity() {
         startActivity(new Intent(this, AddOfferActivity.class));
-        finish();
     }
 
     public static Intent getIntent(Context context, int bottomNavOption) {

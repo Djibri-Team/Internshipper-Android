@@ -8,6 +8,7 @@ import android.widget.RadioButton;
 
 import com.dd.CircularProgressButton;
 import com.debeliya_i_kompaniya.internshipper.R;
+import com.debeliya_i_kompaniya.internshipper.constants.BottomNavOptions;
 import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BaseActivity;
 
 import butterknife.BindView;
@@ -27,10 +28,13 @@ public class AddOfferActivity extends BaseActivity {
     @OnClick(R.id.btn_add_offer)
     void addOffer() {
         checkIfFieldsAreEmpty();
+
+        startActivity(AllOffers.getIntent(this, BottomNavOptions.OFFERLIST));
+        finish();
     }
 
     private void checkIfFieldsAreEmpty() {
-        
+
     }
 
     @Override
