@@ -12,6 +12,7 @@ import com.dd.CircularProgressButton;
 import com.debeliya_i_kompaniya.internshipper.DataProvider;
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.BottomNavOptions;
+import com.debeliya_i_kompaniya.internshipper.models.LoginModel;
 import com.debeliya_i_kompaniya.internshipper.models.User;
 import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BaseActivity;
 
@@ -39,7 +40,7 @@ public class LoginActivity extends BaseActivity {
     void signIn() {
         if (!checkIfFieldsAreEmpty()) {
             getUserDataFromFields();
-            if(DataProvider.getInstance().loginUser(email, password)) {
+            if(DataProvider.getInstance().loginUser(new LoginModel(email, password))) {
                 startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
             }
             getUserFromDatabase();

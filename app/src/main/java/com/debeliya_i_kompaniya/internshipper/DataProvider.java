@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.debeliya_i_kompaniya.internshipper.enums.JobCategory;
 import com.debeliya_i_kompaniya.internshipper.enums.UserRole;
+import com.debeliya_i_kompaniya.internshipper.models.LoginModel;
 import com.debeliya_i_kompaniya.internshipper.models.Offer;
 import com.debeliya_i_kompaniya.internshipper.models.OfferWithStatus;
 import com.debeliya_i_kompaniya.internshipper.models.User;
@@ -27,8 +28,8 @@ public class DataProvider {
         return dataProvider;
     }
 
-    public boolean loginUser(String email, String password) {
-        Call<User> loginCall = NetworkManager.getInstance().getAPI().loginUser(email, password);
+    public boolean loginUser(LoginModel loginModel) {
+        Call<User> loginCall = NetworkManager.getInstance().getAPI().loginUser(loginModel);
 
         loginCall.enqueue(new Callback<User>() {
             @Override
@@ -49,31 +50,40 @@ public class DataProvider {
         return false;
     }
 
-    public boolean registerUser(User user) {
+    public boolean registerUser(final User userForRegistering) {
+        Call<User> registerCall = NetworkManager.getInstance().getAPI().registerUser(userForRegistering);
 
+        registerCall.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if(response.isSuccessful()) {
+                    user = response.body();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
         return false;
     }
 
     public User getUser() {
-        User user = new User(
-                1,
-                "Zachary",
-                "Georgiev",
-                "zguri@abv.bg",
-                "ivanegei",
-                UserRole.STUDENT);
+        User user = new User("Zachary", "Georgiev", "zguri@abv.bg", "ivanegei", "", UserRole.EMPLOYER.toString());
 
         return user;
     }
 
     public ArrayList<User> getAllApplicants() {
         ArrayList<User> allUsers = new ArrayList<>();
-        allUsers.add(new User(3,
+        allUsers.add(new User(
                 "Ivan",
                 "Ganchev",
                 "vanibani@abv.bg",
+                "",
                 "azsumgei",
-                UserRole.STUDENT));
+                UserRole.STUDENT.toString()));
 
         return allUsers;
     }
