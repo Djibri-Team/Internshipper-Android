@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -39,6 +40,7 @@ public class LoginActivity extends BaseActivity {
         if (!checkIfFieldsAreEmpty()) {
             getUserFromDatabase();
         }
+        getUserFromDatabase();
         getUserDataFromFields();
         //TODO: Implement this!
 
@@ -59,7 +61,11 @@ public class LoginActivity extends BaseActivity {
         editor.putString("lastName", user.getLastName());
         editor.putString("email", user.getEmail());
         editor.putString("password", user.getPassword());
-        editor.putString("userRole", user.getUserRole().toString())
+        editor.putString("userRole", user.getUserRole().toString());
+
+        editor.apply();
+
+        Log.d("zax", "saveToSharedPreferences: " + user.getUserRole().toString());
     }
 
     private boolean checkIfFieldsAreEmpty() {

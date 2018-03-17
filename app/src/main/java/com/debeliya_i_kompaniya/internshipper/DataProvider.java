@@ -19,7 +19,7 @@ public class DataProvider {
     }
 
     public User getUser() {
-        User user = new User("Zachary", "Georgiev", "zguri@abv.bg", "ivanegei", UserRole.EMPLOYER);
+        User user = new User("Zachary", "Georgiev", "zguri@abv.bg", "ivanegei", UserRole.STUDENT);
 
         return user;
     }

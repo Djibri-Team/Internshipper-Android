@@ -2,10 +2,13 @@ package com.debeliya_i_kompaniya.internshipper.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
 
 import com.debeliya_i_kompaniya.internshipper.DataProvider;
 import com.debeliya_i_kompaniya.internshipper.R;
@@ -43,6 +46,18 @@ public class AllOffers extends BottomNavigationActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_offer_list);
         configureRecyclerView();
+
+        checkUserRole();
+    }
+
+    private void checkUserRole() {
+        SharedPreferences sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
+        String userRole = sharedPreferences.getString("userRole", "");
+
+        if (userRole.equals("STUDENT")) {
+            fabAddOffer.setVisibility(View.GONE);
+        }
     }
 
     private void configureRecyclerView() {
