@@ -7,13 +7,11 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import com.debeliya_i_kompaniya.internshipper.DataProvider;
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.StartConstants;
-import com.debeliya_i_kompaniya.internshipper.enums.JobCategory;
 import com.debeliya_i_kompaniya.internshipper.models.Offer;
 import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BottomNavigationActivity;
 import com.debeliya_i_kompaniya.internshipper.view_utils.all_offers_recyclerview.OfferListRecyclerViewAdapter;
@@ -24,7 +22,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class AllOffers extends BottomNavigationActivity {
+public class AllOffersActivity extends BottomNavigationActivity {
     @BindView(R.id.rv_all_offers) RecyclerView recyclerView;
     @BindView(R.id.fab_add_offer) FloatingActionButton fabAddOffer;
     private OfferListRecyclerViewAdapter adapter;
@@ -35,7 +33,7 @@ public class AllOffers extends BottomNavigationActivity {
     }
 
     public static Intent getIntent(Context context, int bottomNavOption) {
-        Intent intent = new Intent(context, AllOffers.class);
+        Intent intent = new Intent(context, AllOffersActivity.class);
         intent.putExtra(StartConstants.EXTRA_NAV_OPTION, bottomNavOption);
 
         return intent;

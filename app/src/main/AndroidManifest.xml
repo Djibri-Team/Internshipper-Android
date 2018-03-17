@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.AllOffers" />
+        <activity android:name=".ui.AllOffersActivity" />
         <activity android:name=".ui.MyOfferListActivity" />
         <activity android:name=".ui.LoginActivity">
             <intent-filter>

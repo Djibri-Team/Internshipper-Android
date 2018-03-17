@@ -3,6 +3,7 @@ package com.debeliya_i_kompaniya.internshipper.models;
 import com.debeliya_i_kompaniya.internshipper.enums.JobCategory;
 
 public class Offer {
+    private int id;
     private String title;
     private String company;
     private String duration;
@@ -12,7 +13,8 @@ public class Offer {
 
     public Offer() {}
 
-    public Offer(String title, String company, String duration, String workingHours, String description, JobCategory type) {
+    public Offer(int id, String title, String company, String duration, String workingHours, String description, JobCategory type) {
+        this.id = id;
         this.title = title;
         this.company = company;
         this.duration = duration;
@@ -43,5 +45,9 @@ public class Offer {
 
     public String getWorkingHours() {
         return workingHours;
+    }
+
+    public int getId() {
+        return id;
     }
 }

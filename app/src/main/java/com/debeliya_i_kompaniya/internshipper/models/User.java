@@ -3,6 +3,7 @@ package com.debeliya_i_kompaniya.internshipper.models;
 import com.debeliya_i_kompaniya.internshipper.enums.UserRole;
 
 public class User {
+    private int id;
     private String firstName;
     private String lastName;
     private String email;
@@ -10,12 +11,14 @@ public class User {
     private UserRole userRole;
 
 
-    public User(String firstName, String lastName, String email, String password, UserRole userRole) {
+    public User(int id, String firstName, String lastName, String email, String password, UserRole userRole) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.userRole = userRole;
+
     }
 
     public String getFirstName() {
@@ -36,5 +39,9 @@ public class User {
 
     public UserRole getUserRole() {
         return userRole;
+    }
+
+    public int getId() {
+        return id;
     }
 }

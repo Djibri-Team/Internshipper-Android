@@ -9,6 +9,7 @@ import com.debeliya_i_kompaniya.internshipper.models.OfferWithStatus;
 import com.debeliya_i_kompaniya.internshipper.models.User;
 import com.debeliya_i_kompaniya.internshipper.network.NetworkManager;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -54,26 +55,47 @@ public class DataProvider {
     }
 
     public User getUser() {
-        User user = new User("Zachary", "Georgiev", "zguri@abv.bg", "ivanegei", UserRole.STUDENT);
+        User user = new User(
+                1,
+                "Zachary",
+                "Georgiev",
+                "zguri@abv.bg",
+                "ivanegei",
+                UserRole.STUDENT);
 
         return user;
+    }
+
+    public ArrayList<User> getAllApplicants() {
+        ArrayList<User> allUsers = new ArrayList<>();
+        allUsers.add(new User(3,
+                "Ivan",
+                "Ganchev",
+                "vanibani@abv.bg",
+                "azsumgei",
+                UserRole.STUDENT));
+
+        return allUsers;
     }
 
     public ArrayList<Offer> getAllOffers() {
         ArrayList<Offer> allOffers= new ArrayList<>();
         allOffers.add(new Offer(
+                1,
                 "Software engineer",
                 "Zguri CO",
                 "2 weeks",
                 "8 hours",
                 "Nice meme",
                 JobCategory.SOFTWARE));
+
         return allOffers;
     }
 
     public ArrayList<OfferWithStatus> getMyOffers() {
         ArrayList<OfferWithStatus> myOffers= new ArrayList<>();
         myOffers.add(new OfferWithStatus(new Offer(
+                2,
                 "Software engineer",
                 "Melon AD",
                 "2 weeks",

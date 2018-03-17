@@ -32,7 +32,7 @@
                 android:textColor="@color/black"
                 android:text="vanibani@abv.bg"
                 android:textSize="17sp"
-                android:id="@+id/offer_company_name"
+                android:id="@+id/tv_applicant_email"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_applicant_name"
                 />
