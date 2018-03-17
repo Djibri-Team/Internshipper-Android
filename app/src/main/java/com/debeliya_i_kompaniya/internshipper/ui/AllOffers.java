@@ -47,7 +47,10 @@ public class AllOffers extends BottomNavigationActivity {
     }
 
     private ArrayList<Offer> getAllOffers() {
-        return null;
+        ArrayList<Offer> allOffers= new ArrayList<>();
+        allOffers.add(new Offer("title", "company", 3, "test"));
         //TODO: IMPLEMENT ME!
+
+        return allOffers;
     }
 }

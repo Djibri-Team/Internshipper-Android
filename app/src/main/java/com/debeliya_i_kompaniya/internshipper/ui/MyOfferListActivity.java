@@ -49,8 +49,11 @@ public class MyOfferListActivity extends BottomNavigationActivity {
     }
 
     private ArrayList<Offer> getMyOffers() {
-        return null;
+        ArrayList<Offer> myOffers= new ArrayList<>();
+        myOffers.add(new Offer("title", "company", 3, "test"));
         //TODO: IMPLEMENT ME!
+
+        return myOffers;
     }
 
 }
