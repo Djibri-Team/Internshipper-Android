@@ -93,18 +93,21 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/rb_software"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Software"
                 />
 
             <RadioButton
+                android:id="@+id/rb_hardware"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hardware"
                 />
 
             <RadioButton
+                android:id="@+id/rb_embedded"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Embedded"
@@ -115,6 +118,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_add_offer"
         android:layout_width="100sp"
         android:layout_height="wrap_content"
         android:text="Add"

@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.UserProfileActivity" />
-        <activity android:name=".ui.SignUpActivity"/>
+        <activity android:name=".ui.SignUpActivity" />
+        <activity android:name=".ui.AddOfferActivity"></activity>
     </application>
 
 </manifest>

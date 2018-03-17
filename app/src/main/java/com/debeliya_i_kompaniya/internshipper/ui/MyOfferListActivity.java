@@ -10,9 +10,10 @@ import android.support.v7.widget.RecyclerView;
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.StartConstants;
 import com.debeliya_i_kompaniya.internshipper.models.Offer;
+import com.debeliya_i_kompaniya.internshipper.models.OfferWithStatus;
 import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BottomNavigationActivity;
+import com.debeliya_i_kompaniya.internshipper.view_utils.my_offers_recyclerview.OnClickMyOffer;
 import com.debeliya_i_kompaniya.internshipper.view_utils.my_offers_recyclerview.MyOfferListRecyclerViewAdapter;
-import com.debeliya_i_kompaniya.internshipper.view_utils.OnClickOffer;
 
 import java.util.ArrayList;
 
@@ -38,9 +39,9 @@ public class MyOfferListActivity extends BottomNavigationActivity {
     }
 
     private void configureRecyclerView() {
-        adapter = new MyOfferListRecyclerViewAdapter(getMyOffers(), new OnClickOffer() {
+        adapter = new MyOfferListRecyclerViewAdapter(getMyOffers(), new OnClickMyOffer() {
             @Override
-            public void onOfferClick(Offer offer, int position) {
+            public void onOfferClick(OfferWithStatus offer, int position) {
                 //TODO: IMPLEMENT ME!
             }
         });
@@ -48,9 +49,9 @@ public class MyOfferListActivity extends BottomNavigationActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private ArrayList<Offer> getMyOffers() {
-        ArrayList<Offer> myOffers= new ArrayList<>();
-        myOffers.add(new Offer("title", "company", 3, "test"));
+    private ArrayList<OfferWithStatus> getMyOffers() {
+        ArrayList<OfferWithStatus> myOffers= new ArrayList<>();
+        myOffers.add(new OfferWithStatus(new Offer("title", "company", 3, "test"), "PENDING"));
         //TODO: IMPLEMENT ME!
 
         return myOffers;

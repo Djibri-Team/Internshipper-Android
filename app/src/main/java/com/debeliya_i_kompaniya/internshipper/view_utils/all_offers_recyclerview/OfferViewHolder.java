@@ -6,7 +6,6 @@ import android.widget.TextView;
 
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.models.Offer;
-import com.debeliya_i_kompaniya.internshipper.view_utils.OnClickOffer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

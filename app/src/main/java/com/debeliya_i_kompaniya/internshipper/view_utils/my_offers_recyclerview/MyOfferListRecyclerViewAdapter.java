@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.debeliya_i_kompaniya.internshipper.R;
-import com.debeliya_i_kompaniya.internshipper.models.Offer;
-import com.debeliya_i_kompaniya.internshipper.view_utils.OnClickOffer;
+import com.debeliya_i_kompaniya.internshipper.models.OfferWithStatus;
+import com.debeliya_i_kompaniya.internshipper.view_utils.all_offers_recyclerview.OnClickOffer;
 
 import java.util.ArrayList;
 
@@ -17,9 +17,9 @@ import java.util.ArrayList;
 
 public class MyOfferListRecyclerViewAdapter extends RecyclerView.Adapter<MyOfferViewHolder> {
     private OnClickOffer listener;
-    private ArrayList<Offer> offers = new ArrayList<>();
+    private ArrayList<OfferWithStatus> offers = new ArrayList<>();
 
-    public MyOfferListRecyclerViewAdapter(ArrayList<Offer> offers, OnClickOffer listener) {
+    public MyOfferListRecyclerViewAdapter(ArrayList<OfferWithStatus> offers, OnClickMyOffer listener) {
         this.offers = offers;
         this.listener = listener;
         notifyDataSetChanged();
