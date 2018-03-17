@@ -3,6 +3,7 @@ package com.debeliya_i_kompaniya.internshipper;
 import android.util.Log;
 
 import com.debeliya_i_kompaniya.internshipper.enums.JobCategory;
+import com.debeliya_i_kompaniya.internshipper.enums.UserRole;
 import com.debeliya_i_kompaniya.internshipper.models.Offer;
 import com.debeliya_i_kompaniya.internshipper.models.OfferWithStatus;
 import com.debeliya_i_kompaniya.internshipper.models.User;
@@ -49,7 +50,13 @@ public class DataProvider {
 
     public boolean registerUser(User user) {
 
+        return false;
+    }
 
+    public User getUser() {
+        User user = new User("Zachary", "Georgiev", "zguri@abv.bg", "ivanegei", UserRole.EMPLOYER);
+
+        return user;
     }
 
     public ArrayList<Offer> getAllOffers() {
@@ -73,7 +80,7 @@ public class DataProvider {
                 "8 hours",
                 "Cool meme",
                 JobCategory.SOFTWARE),
-                "PENDING"));
+                "ACCEPTED"));
 
         return myOffers;
     }
