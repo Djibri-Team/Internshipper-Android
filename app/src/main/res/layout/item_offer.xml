@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/offer_job_name"
                 android:paddingStart="40sp"
-                />
+                android:paddingLeft="40sp" />
 
         </RelativeLayout>
 

@@ -55,7 +55,7 @@
             android:id="@+id/tv_forgot_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="end|center_vertical"
             android:text="@string/forgot_password_text"
             android:textAlignment="textEnd"
             android:textColor="@color/iron" />
