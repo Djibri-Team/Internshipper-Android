@@ -42,6 +42,12 @@ public class InternshipDetailsActivity extends BaseActivity {
         return intent;
     }
 
+//    public void setOfferValue() {
+//        Intent intent = getIntent();
+//
+//        offer = intent.getParcelableExtra("offer");
+//    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
