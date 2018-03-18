@@ -3,6 +3,7 @@ package com.debeliya_i_kompaniya.internshipper.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -58,6 +59,13 @@ public class InternshipDetailsActivity extends BaseActivity {
     }
 
     private void configFields() {
+
+        Log.d("zax", "configFields: " + offer.getTitle());
+        Log.d("zax", "configFields: " + offer.getCompanyName());
+        Log.d("zax", "configFields: " + offer.getType().toString());
+        Log.d("zax", "configFields: " + offer.getInternTimeLength());
+        Log.d("zax", "configFields: " + offer.getWorkingHours());
+
         positionName.setText(offer.getTitle());
         companyName.setText(offer.getCompanyName());
         category.setText(offer.getType().toString());

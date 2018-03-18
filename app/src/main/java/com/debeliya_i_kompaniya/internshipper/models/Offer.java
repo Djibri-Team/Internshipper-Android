@@ -15,8 +15,6 @@ public class Offer implements Parcelable {
     private JobCategory type;
     private int publisherId;
 
-    public Offer() {}
-
     public Offer(int id, String title, String company, String duration, int workingHours, String description, JobCategory type, int publisherId) {
         this.id = id;
         this.title = title;
@@ -76,8 +74,8 @@ public class Offer implements Parcelable {
         internTimeLength = in.readString();
         workingHours = in.readInt();
         description = in.readString();
-        publisherId = in.readInt();
         type = (JobCategory) in.readValue(JobCategory.class.getClassLoader());
+        publisherId = in.readInt();
     }
 
     @Override
@@ -109,18 +107,4 @@ public class Offer implements Parcelable {
             return new Offer[size];
         }
     };
-
-    @Override
-    public String toString() {
-        return "Offer{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", companyName='" + companyName + '\'' +
-                ", internTimeLength='" + internTimeLength + '\'' +
-                ", workingHours=" + workingHours +
-                ", description='" + description + '\'' +
-                ", type=" + type +
-                ", publisherId=" + publisherId +
-                '}';
-    }
 }
