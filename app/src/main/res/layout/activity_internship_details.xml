@@ -10,13 +10,23 @@
         android:layout_width="match_parent"
         android:layout_height="200dp">
 
+        <ImageButton
+            android:id="@+id/ib_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_back_button"
+            android:background="@color/white"
+            android:layout_marginLeft="8dp" />
+
         <TextView
             android:id="@+id/tv_position_name"
             android:layout_width="352dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="50dp"
             android:text="Full stack (Java/Angular) Developer"
             android:textAlignment="center"
             android:textColor="@color/black"
