@@ -2,7 +2,6 @@ package com.debeliya_i_kompaniya.internshipper.ui;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,7 +13,6 @@ import com.debeliya_i_kompaniya.internshipper.DataProvider;
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.StartConstants;
 import com.debeliya_i_kompaniya.internshipper.models.Offer;
-import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BaseActivity;
 import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BottomNavigationActivity;
 import com.debeliya_i_kompaniya.internshipper.view_utils.all_offers_recyclerview.OfferListRecyclerViewAdapter;
 import com.debeliya_i_kompaniya.internshipper.view_utils.all_offers_recyclerview.OnClickOffer;

@@ -171,6 +171,7 @@ public class DataProvider {
             @Override
             public void onResponse(Call<ArrayList<Offer>> call, Response<ArrayList<Offer>> response) {
                 if(response.isSuccessful()) {
+                    response.body().toString();
                     employerHomePageActivity.setNewDataToAdapter(response.body());
                 }
             }

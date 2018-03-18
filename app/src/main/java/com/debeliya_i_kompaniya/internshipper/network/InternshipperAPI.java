@@ -35,7 +35,7 @@ public interface InternshipperAPI {
     @GET("user/applications/")
     Call<ArrayList<OfferWithStatus>> getUserOffers(@Query("userId") int userId);
 
-    @GET("publisher/applications")
+    @GET("publisher/offers")
     Call<ArrayList<Offer>> getPublisherOffers(@Query("userId") int userId);
 
     @GET("publisher/userOnOffer/")
