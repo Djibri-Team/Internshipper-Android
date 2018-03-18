@@ -10,6 +10,7 @@ import com.debeliya_i_kompaniya.internshipper.models.OfferWithStatus;
 import com.debeliya_i_kompaniya.internshipper.models.UserAccount;
 import com.debeliya_i_kompaniya.internshipper.network.NetworkManager;
 import com.debeliya_i_kompaniya.internshipper.ui.AllOffersActivity;
+import com.debeliya_i_kompaniya.internshipper.ui.ApplicantsActivity;
 import com.debeliya_i_kompaniya.internshipper.ui.EmployerHomePageActivity;
 import com.debeliya_i_kompaniya.internshipper.ui.LoginActivity;
 import com.debeliya_i_kompaniya.internshipper.ui.SignUpActivity;
@@ -88,19 +89,24 @@ public class DataProvider {
         return userAccount;
     }
 
-    public ArrayList<UserAccount> getAllApplicants() {
-        ArrayList<UserAccount> allUserAccounts = new ArrayList<>();
-        allUserAccounts.add(new UserAccount(
-                "Ivan",
-                "Ganchev",
-                "vanibani@abv.bg",
-                "",
-                "azsumgei",
-                UserRole.STUDENT.toString()));
+    public void getAllApplicants(final ApplicantsActivity applicantsActivity, int id) {
+        Call<ArrayList<UserAccount>> getApplicantsCallback = NetworkManager
+                .getInstance().getAPI().getAllApplicantsForOffer(id);
 
+        getApplicantsCallback.enqueue(new Callback<ArrayList<UserAccount>>() {
+            @Override
+            public void onResponse(Call<ArrayList<UserAccount>> call, Response<ArrayList<UserAccount>> response) {
+                if(response.isSuccessful()) {
+                    applicantsActivity.setDataToAdapter(response.body());
+                }
+            }
 
+            @Override
+            public void onFailure(Call<ArrayList<UserAccount>> call, Throwable t) {
 
-        return allUserAccounts;
+            }
+        });
+
     }
 
     public ArrayList<Offer> getAllOffers(final AllOffersActivity allOffersActivity) {
