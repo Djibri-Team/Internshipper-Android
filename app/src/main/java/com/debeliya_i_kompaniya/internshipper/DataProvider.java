@@ -10,6 +10,7 @@ import com.debeliya_i_kompaniya.internshipper.models.OfferWithStatus;
 import com.debeliya_i_kompaniya.internshipper.models.UserAccount;
 import com.debeliya_i_kompaniya.internshipper.network.NetworkManager;
 import com.debeliya_i_kompaniya.internshipper.ui.LoginActivity;
+import com.debeliya_i_kompaniya.internshipper.ui.SignUpActivity;
 
 import java.util.ArrayList;
 
@@ -56,20 +57,22 @@ public class DataProvider {
         return false;
     }
 
-    public boolean registerUser(final UserAccount userAccountForRegistering) {
-        Call<UserAccount> registerCall = NetworkManager.getInstance().getAPI().registerUser(userAccountForRegistering);
+    public boolean registerUser(final String firstName, final String lastName, final String email, final String password, final String userRole, final SignUpActivity signUpActivity) {
+//        Log.d("SII", "registerUser: " + userAccountForRegistering.toString());
+        Call<ArrayList<UserAccount>> registerCall = NetworkManager.getInstance().getAPI().registerUser(firstName, lastName, email, password, userRole);
 
-        registerCall.enqueue(new Callback<UserAccount>() {
+        registerCall.enqueue(new Callback<ArrayList<UserAccount>>() {
             @Override
-            public void onResponse(Call<UserAccount> call, Response<UserAccount> response) {
+            public void onResponse(Call<ArrayList<UserAccount>> call, Response<ArrayList<UserAccount>> response) {
                 if(response.isSuccessful()) {
-                    userAccount = response.body();
+                    userAccount = response.body().get(0);
+                    signUpActivity.startNewActivity();
                 }
             }
 
             @Override
-            public void onFailure(Call<UserAccount> call, Throwable t) {
-
+            public void onFailure(Call<ArrayList<UserAccount>> call, Throwable t) {
+                Log.d("SII", "onFailure: " + t.getMessage());
             }
         });
         return false;

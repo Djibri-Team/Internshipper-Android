@@ -2,6 +2,7 @@ package com.debeliya_i_kompaniya.internshipper.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -34,9 +35,11 @@ public class SignUpActivity extends BaseActivity {
             checkIfPasswordsMatch();
         } else {
             UserAccount userAccount = getDataFromFields();
-            if(DataProvider.getInstance().registerUser(userAccount)) {
-                startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.HOME));
-            }
+            DataProvider.getInstance().registerUser(userAccount.getFirstName(),
+                    userAccount.getLastName(),
+                    userAccount.getEmail(),
+                    userAccount.getPassword(),
+                    userAccount.getUserRole().toString(),this);
         }
     }
 
@@ -44,6 +47,10 @@ public class SignUpActivity extends BaseActivity {
     void transferToLoginActivity() {
         startActivity(new Intent(this, LoginActivity.class));
         finish();
+    }
+
+    public void startNewActivity() {
+        startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.HOME));
     }
 
     @Override
@@ -56,8 +63,8 @@ public class SignUpActivity extends BaseActivity {
         if(!etPassword.getText().toString().equals(etConfirmPassword.getText().toString())) {
             InternshipperApplication.showToast("Passwords do not match!");
 
-            etPassword.setText("");
-            etConfirmPassword.setText("");
+//            etPassword.setText("");
+//            etConfirmPassword.setText("");
         }
     }
 
@@ -79,6 +86,10 @@ public class SignUpActivity extends BaseActivity {
         String lastName = etLastName.getText().toString();
         String email = etEmail.getText().toString();
         String password = etPassword.getText().toString();
+//        String password = String.valueOf(etPassword.getText().toString());
+
+//        Log.d("SII", "getDataFromFields: " + password);
+
         UserRole userRole;
         if(userRoleCheckBox.isChecked()) {
             userRole = UserRole.EMPLOYER;

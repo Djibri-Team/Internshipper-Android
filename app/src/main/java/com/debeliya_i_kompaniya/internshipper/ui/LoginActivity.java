@@ -56,7 +56,6 @@ public class LoginActivity extends BaseActivity {
         saveToSharedPreferences(userAccount);
 
         if (userRole.equals("EMPLOYER")) {
-
             startActivity(new Intent(this, EmployerHomePageActivity.class));
         }
         else {

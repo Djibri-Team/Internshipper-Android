@@ -35,6 +35,7 @@ public class UserAccount {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.userPassword = password;
         this.userRole = UserRole.StringToUserRole(userRole);
     }
 

@@ -23,8 +23,14 @@ public interface InternshipperAPI {
             @Field("email") String email,
             @Field("password") String password);
 
+    @FormUrlEncoded
     @POST("register")
-    Call<UserAccount> registerUser(@Body UserAccount userAccount);
+    Call<ArrayList<UserAccount>> registerUser(
+            @Field("firstName") String firstName,
+            @Field("lastName") String lastName,
+            @Field("password") String password,
+            @Field("email") String email,
+            @Field("userRole") String userRole);
 
     @GET("user/offers/")
     Call<ArrayList<OfferWithStatus>> getUserOffers(@Query("userId") int userId);
