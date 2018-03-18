@@ -17,6 +17,8 @@ import com.debeliya_i_kompaniya.internshipper.enums.JobCategory;
 import com.debeliya_i_kompaniya.internshipper.models.Offer;
 import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BaseActivity;
 
+import java.io.IOException;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -47,14 +49,18 @@ public class AddOfferActivity extends BaseActivity {
     @OnClick(R.id.btn_add_offer)
     void addOffer() {
         if (!checkIfFieldsAreEmpty()) {
-            saveOfferToDatabase(createOffer());
+            try {
+                saveOfferToDatabase(createOffer());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
             startActivity(EmployerHomePageActivity.getIntent(this, BottomNavOptions.HOME));
             finish();
         }
     }
 
-    private void saveOfferToDatabase(Offer offer) {
+    private void saveOfferToDatabase(Offer offer) throws IOException {
         DataProvider.getInstance().addOffer(offer);
     }
 
@@ -80,7 +86,7 @@ public class AddOfferActivity extends BaseActivity {
 
         rb = findViewById(radioButtonID);
 
-        jobCategory = JobCategory.stringToJobCategory(rb.getText().toString());
+        jobCategory = JobCategory.stringToJobCategory(rb.getText().toString().toUpperCase());
         isCategorySet = true;
     }
 

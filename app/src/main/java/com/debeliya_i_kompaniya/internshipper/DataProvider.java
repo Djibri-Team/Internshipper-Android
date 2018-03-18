@@ -10,9 +10,11 @@ import com.debeliya_i_kompaniya.internshipper.models.OfferWithStatus;
 import com.debeliya_i_kompaniya.internshipper.models.UserAccount;
 import com.debeliya_i_kompaniya.internshipper.network.NetworkManager;
 import com.debeliya_i_kompaniya.internshipper.ui.AllOffersActivity;
+import com.debeliya_i_kompaniya.internshipper.ui.EmployerHomePageActivity;
 import com.debeliya_i_kompaniya.internshipper.ui.LoginActivity;
 import com.debeliya_i_kompaniya.internshipper.ui.SignUpActivity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -154,23 +156,44 @@ public class DataProvider {
         return myOffers;
     }
 
-    public ArrayList<Offer> getAllEmployerOffers() {
-        ArrayList<Offer> allEmployerOffers= new ArrayList<>();
-//        allEmployerOffers.add(new Offer(
-//                1,
-//                "Q&A engineer",
-//                "Zdoyan CO",
-//                "2 weeks",
-//                "8 hours",
-//                "Qkata rabota",
-//                JobCategory.SOFTWARE));
+    public void getAllEmployerOffers(final EmployerHomePageActivity employerHomePageActivity) {
+        int userId = userAccount.getId();
 
-        return allEmployerOffers;
+        Call<ArrayList<Offer>> publisherOffersCallback= NetworkManager.getInstance().getAPI().getPublisherOffers(userId);
+
+        publisherOffersCallback.enqueue(new Callback<ArrayList<Offer>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Offer>> call, Response<ArrayList<Offer>> response) {
+                if(response.isSuccessful()) {
+                    employerHomePageActivity.setNewDataToAdapter(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Offer>> call, Throwable t) {
+
+            }
+        });
     }
 
-    public void addOffer(Offer offer) {
+    public void addOffer(Offer offer) throws IOException {
         Log.d("SII", "addOffer: " + offer.toString());
-        NetworkManager.getInstance().getAPI().addOffer(offer.getPublisherId(), offer.getWorkingHours(),
-                offer.getTitle(), offer.getCompanyName(), offer.getDescription(), offer.getType().toString());
+        Call<Void> callback = NetworkManager.getInstance().getAPI().addOffer(offer.getPublisherId(), offer.getInternTimeLength(),
+                offer.getWorkingHours(), offer.getTitle(), offer.getCompanyName(),
+                offer.getDescription(), offer.getType().toString());
+
+        callback.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Log.d("SII", "onFailure: add " + t.getMessage());
+            }
+        });
+
     }
+
 }

@@ -31,6 +31,7 @@ public class EmployerHomePageActivity extends BottomNavigationActivity {
     @BindView(R.id.fab_add_offer) FloatingActionButton fabAddOffer;
     @BindView(R.id.tv_internships) TextView header;
 
+    private ArrayList<Offer> employerOffers = new ArrayList<>();
     private OfferListRecyclerViewAdapter adapter;
 
     @OnClick(R.id.fab_add_offer)
@@ -52,10 +53,11 @@ public class EmployerHomePageActivity extends BottomNavigationActivity {
         header.setText("My jobs");
 
         fabAddOffer.setVisibility(View.VISIBLE);
+        getAllEmployerOffers();
     }
 
     private void configureRecyclerView() {
-        adapter = new OfferListRecyclerViewAdapter(getAllEmployerOffers(), new OnClickOffer() {
+        adapter = new OfferListRecyclerViewAdapter(employerOffers, new OnClickOffer() {
             @Override
             public void onOfferClick(Offer offer, int position) {
                 startActivity(InternshipDetailsActivity.getIntent(getBaseContext(), offer));
@@ -65,7 +67,11 @@ public class EmployerHomePageActivity extends BottomNavigationActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private ArrayList<Offer> getAllEmployerOffers() {
-        return DataProvider.getInstance().getAllEmployerOffers();
+    private void getAllEmployerOffers() {
+        DataProvider.getInstance().getAllEmployerOffers(this);
+    }
+
+    public void setNewDataToAdapter(ArrayList<Offer> publisherOffer) {
+        adapter.setData(publisherOffer);
     }
 }

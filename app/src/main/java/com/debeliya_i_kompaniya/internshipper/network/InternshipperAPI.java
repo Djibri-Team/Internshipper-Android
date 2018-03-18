@@ -35,22 +35,23 @@ public interface InternshipperAPI {
     @GET("user/offers/")
     Call<ArrayList<OfferWithStatus>> getUserOffers(@Query("userId") int userId);
 
-    @GET("publisher/offers")
-    Call<ArrayList<Offer>> getPublisherOffers();
+    @GET("publisher/applications")
+    Call<ArrayList<Offer>> getPublisherOffers(@Query("userId") int userId);
 
     @GET("publisher/userOnOffer/")
     Call<ArrayList<UserAccount>> getAllUsersForOffer(@Query("offerId") int offerId);
 
     @FormUrlEncoded
-    @POST("/offers/add")
-    void addOffer(@Field("publisherId") int publisherId,
+    @POST("offers/add")
+        Call<Void> addOffer(@Field("publisherId") int publisherId,
+                  @Field("internTimeLength") String internTimeLength,
                   @Field("workingHours") int workingHours,
                   @Field("title") String title,
                   @Field("companyName") String companyName,
-                  @Field("description") String descripption,
+                  @Field("description") String description,
                   @Field("offerType") String offerType);
 
-    @GET("/offers")
+    @GET("offers")
     Call<ArrayList<Offer>> getAllOffers();
 
     @DELETE("/deleteOffer")
