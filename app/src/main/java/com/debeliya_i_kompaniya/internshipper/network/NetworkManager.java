@@ -1,5 +1,10 @@
 package com.debeliya_i_kompaniya.internshipper.network;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import com.debeliya_i_kompaniya.internshipper.InternshipperApplication;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -21,7 +26,12 @@ public class NetworkManager {
     }
 
     private NetworkManager() {
-        final String url = "http://5c45d927.ngrok.io/";
+        SharedPreferences sharedPreferences = InternshipperApplication.getStatic()
+                .getSharedPreferences("Setup", Context.MODE_PRIVATE);
+
+        String urlFromPrefs =  sharedPreferences.getString("url", "");
+
+        final String url = "http://" + urlFromPrefs;
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(url)

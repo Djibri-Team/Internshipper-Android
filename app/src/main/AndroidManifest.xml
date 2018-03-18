@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,18 +15,19 @@
         <activity android:name=".ui.AllOffersActivity" />
         <activity android:name=".ui.MyOfferListActivity" />
         <activity android:name=".ui.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ui.UserProfileActivity" />
         <activity android:name=".ui.SignUpActivity" />
-        <activity android:name=".ui.AddOfferActivity"></activity>
-        <activity android:name=".ui.EmployerHomePageActivity"></activity>
-        <activity android:name=".ui.ApplicantsActivity"></activity>
-        <activity android:name=".ui.InternshipDetailsActivity"></activity>
+        <activity android:name=".ui.AddOfferActivity" />
+        <activity android:name=".ui.EmployerHomePageActivity" />
+        <activity android:name=".ui.ApplicantsActivity" />
+        <activity android:name=".ui.InternshipDetailsActivity" />
+        <activity android:name=".ui.ConfigurationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
