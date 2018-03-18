@@ -1,5 +1,7 @@
 package com.debeliya_i_kompaniya.internshipper.ui;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.debeliya_i_kompaniya.internshipper.DataProvider;
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.BottomNavOptions;
 import com.debeliya_i_kompaniya.internshipper.enums.JobCategory;
@@ -52,18 +55,22 @@ public class AddOfferActivity extends BaseActivity {
     }
 
     private void saveOfferToDatabase(Offer offer) {
+        DataProvider.getInstance().addOffer(offer);
     }
 
     private Offer createOffer() {
 
+        SharedPreferences sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
+
         String title = etJobPosition.getText().toString();
         String companyName = etCompanyName.getText().toString();
         String duration = etDuration.getText().toString();
-        String workingHours = etWorkingHours.getText().toString();
+        int workingHours = Integer.valueOf(etWorkingHours.getText().toString());
         String description = etDescription.getText().toString();
-        JobCategory category = jobCategory;
+        int publisherId = sharedPreferences.getInt("id", 0);
 
-        Offer offer = new Offer(1 ,title, companyName, duration, workingHours, description, category);
+        Offer offer = new Offer(title, companyName, duration, workingHours, description, jobCategory, publisherId);
 
         return offer;
     }

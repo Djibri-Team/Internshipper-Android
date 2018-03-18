@@ -55,6 +55,10 @@ public class AllOffersActivity extends BottomNavigationActivity {
     }
 
     private ArrayList<Offer> getAllOffers() {
-        return DataProvider.getInstance().getAllOffers();
+        return DataProvider.getInstance().getAllOffers(this);
+    }
+
+    public void setNewDataToAdapter(ArrayList<Offer> allOffers) {
+        adapter.setData(allOffers);
     }
 }

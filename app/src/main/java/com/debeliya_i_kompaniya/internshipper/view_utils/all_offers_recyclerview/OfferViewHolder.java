@@ -28,7 +28,7 @@ public class OfferViewHolder extends RecyclerView.ViewHolder {
 
     public void bind(final Offer offer, final OnClickOffer listener) {
         tvJobTitle.setText(offer.getTitle());
-        tvCompanyName.setText(offer.getCompany());
+        tvCompanyName.setText(offer.getCompanyName());
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override

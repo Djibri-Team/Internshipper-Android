@@ -30,7 +30,7 @@ public class MyOfferViewHolder extends RecyclerView.ViewHolder {
 
     public void bind(final OfferWithStatus offerWithStatus, final OnClickMyOffer listener) {
         tvJobTitle.setText(offerWithStatus.getOffer().getTitle());
-        tvCompanyName.setText(offerWithStatus.getOffer().getCompany());
+        tvCompanyName.setText(offerWithStatus.getOffer().getCompanyName());
         setStatusState(offerWithStatus.getStatus());
 
         itemView.setOnClickListener(new View.OnClickListener() {

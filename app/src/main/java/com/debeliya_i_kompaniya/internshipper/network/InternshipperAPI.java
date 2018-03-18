@@ -41,8 +41,14 @@ public interface InternshipperAPI {
     @GET("publisher/userOnOffer/")
     Call<ArrayList<UserAccount>> getAllUsersForOffer(@Query("offerId") int offerId);
 
+    @FormUrlEncoded
     @POST("/offers/add")
-    void addOffer(@Body Offer offer);
+    void addOffer(@Field("publisherId") int publisherId,
+                  @Field("workingHours") int workingHours,
+                  @Field("title") String title,
+                  @Field("companyName") String companyName,
+                  @Field("description") String descripption,
+                  @Field("offerType") String offerType);
 
     @GET("/offers")
     Call<ArrayList<Offer>> getAllOffers();

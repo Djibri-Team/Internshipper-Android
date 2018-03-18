@@ -8,34 +8,45 @@ import com.debeliya_i_kompaniya.internshipper.enums.JobCategory;
 public class Offer implements Parcelable {
     private int id;
     private String title;
-    private String company;
-    private String duration;
-    private String workingHours;
+    private String companyName;
+    private String internTimeLength;
+    private int workingHours;
     private String description;
     private JobCategory type;
+    private int publisherId;
 
     public Offer() {}
 
-    public Offer(int id, String title, String company, String duration, String workingHours, String description, JobCategory type) {
+    public Offer(int id, String title, String company, String duration, int workingHours, String description, JobCategory type, int publisherId) {
         this.id = id;
         this.title = title;
-        this.company = company;
-        this.duration = duration;
+        this.companyName = company;
+        this.internTimeLength = duration;
         this.workingHours = workingHours;
         this.description = description;
         this.type = type;
+        this.publisherId = publisherId;
+    }
+    public Offer(String title, String company, String duration, int workingHours, String description, JobCategory type, int publisherId) {
+        this.title = title;
+        this.companyName = company;
+        this.internTimeLength = duration;
+        this.workingHours = workingHours;
+        this.description = description;
+        this.type = type;
+        this.publisherId = publisherId;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public String getCompany() {
-        return company;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public String getDuration() {
-        return duration;
+    public String getInternTimeLength() {
+        return internTimeLength;
     }
 
     public String getDescription() {
@@ -46,7 +57,7 @@ public class Offer implements Parcelable {
         return type;
     }
 
-    public String getWorkingHours() {
+    public int getWorkingHours() {
         return workingHours;
     }
 
@@ -54,13 +65,18 @@ public class Offer implements Parcelable {
         return id;
     }
 
+    public int getPublisherId() {
+        return publisherId;
+    }
+
     protected Offer(Parcel in) {
         id = in.readInt();
         title = in.readString();
-        company = in.readString();
-        duration = in.readString();
-        workingHours = in.readString();
+        companyName = in.readString();
+        internTimeLength = in.readString();
+        workingHours = in.readInt();
         description = in.readString();
+        publisherId = in.readInt();
         type = (JobCategory) in.readValue(JobCategory.class.getClassLoader());
     }
 
@@ -73,11 +89,12 @@ public class Offer implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeString(title);
-        dest.writeString(company);
-        dest.writeString(duration);
-        dest.writeString(workingHours);
+        dest.writeString(companyName);
+        dest.writeString(internTimeLength);
+        dest.writeInt(workingHours);
         dest.writeString(description);
         dest.writeValue(type);
+        dest.writeInt(publisherId);
     }
 
     @SuppressWarnings("unused")
@@ -92,4 +109,18 @@ public class Offer implements Parcelable {
             return new Offer[size];
         }
     };
+
+    @Override
+    public String toString() {
+        return "Offer{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", internTimeLength='" + internTimeLength + '\'' +
+                ", workingHours=" + workingHours +
+                ", description='" + description + '\'' +
+                ", type=" + type +
+                ", publisherId=" + publisherId +
+                '}';
+    }
 }

@@ -37,36 +37,36 @@ public class LoginActivity extends BaseActivity {
         finish();
     }
 
-//    @OnClick(R.id.btn_signIn)
-//    void signIn() {
-//        if (!checkIfFieldsAreEmpty()) {
-//            getUserDataFromFields();
-//
-//            if(DataProvider.getInstance().loginUser(new LoginModel(email, password), this)) {
-//                Log.d("zax", "signIn: " + userRole);
-//
-//            }
-//        }
-//    }
-
-
-    //MOCK
     @OnClick(R.id.btn_signIn)
     void signIn() {
-//        if (!checkIfFieldsAreEmpty()) {
-//            getUserDataFromFields();
-//            if(DataProvider.getInstance().loginUser(new LoginModel(email, password))) {
-//                startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
-//            }
-//            getUserFromDatabase();
-//        }
+        if (!checkIfFieldsAreEmpty()) {
+            getUserDataFromFields();
 
-        getUserFromDatabase();
-        getUserDataFromFields();
-        //TODO: Implement this!
+            if(DataProvider.getInstance().loginUser(new LoginModel(email, password), this)) {
+                Log.d("zax", "signIn: " + userRole);
 
-        startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
+            }
+        }
     }
+
+
+//    //MOCK
+//    @OnClick(R.id.btn_signIn)
+//    void signIn() {
+////        if (!checkIfFieldsAreEmpty()) {
+////            getUserDataFromFields();
+////            if(DataProvider.getInstance().loginUser(new LoginModel(email, password))) {
+////                startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
+////            }
+////            getUserFromDatabase();
+////        }
+//
+//        getUserFromDatabase();
+//        getUserDataFromFields();
+//        //TODO: Implement this!
+//
+//        startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
+//    }
 
     public void getUserFromDatabase() {
         UserAccount userAccount = DataProvider.getInstance().getUserAccount();
@@ -87,6 +87,7 @@ public class LoginActivity extends BaseActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("id", userAccount.getId());
         editor.putString("firstName", userAccount.getFirstName());
         editor.putString("lastName", userAccount.getLastName());
         editor.putString("email", userAccount.getEmail());

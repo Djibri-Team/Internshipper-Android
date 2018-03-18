@@ -53,9 +53,9 @@ public class InternshipDetailsActivity extends BaseActivity {
 
     private void configFields() {
         positionName.setText(offer.getTitle());
-        companyName.setText(offer.getCompany());
+        companyName.setText(offer.getCompanyName());
         category.setText(offer.getType().toString());
-        duration.setText(offer.getDuration());
+        duration.setText(offer.getInternTimeLength());
         workingHours.setText(offer.getWorkingHours());
     }
 

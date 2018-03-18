@@ -9,6 +9,7 @@ import com.debeliya_i_kompaniya.internshipper.models.Offer;
 import com.debeliya_i_kompaniya.internshipper.models.OfferWithStatus;
 import com.debeliya_i_kompaniya.internshipper.models.UserAccount;
 import com.debeliya_i_kompaniya.internshipper.network.NetworkManager;
+import com.debeliya_i_kompaniya.internshipper.ui.AllOffersActivity;
 import com.debeliya_i_kompaniya.internshipper.ui.LoginActivity;
 import com.debeliya_i_kompaniya.internshipper.ui.SignUpActivity;
 
@@ -59,7 +60,7 @@ public class DataProvider {
 
     public boolean registerUser(final String firstName, final String lastName, final String email, final String password, final String userRole, final SignUpActivity signUpActivity) {
 //        Log.d("SII", "registerUser: " + userAccountForRegistering.toString());
-        Call<ArrayList<UserAccount>> registerCall = NetworkManager.getInstance().getAPI().registerUser(firstName, lastName, email, password, userRole);
+        Call<ArrayList<UserAccount>> registerCall = NetworkManager.getInstance().getAPI().registerUser(firstName, lastName, password, email, userRole);
 
         registerCall.enqueue(new Callback<ArrayList<UserAccount>>() {
             @Override
@@ -80,7 +81,7 @@ public class DataProvider {
 
     public UserAccount getUserAccount() {
 
-        UserAccount userAccount = new UserAccount("Zachary", "Georgiev", "zguri@abv.bg", "ivanegei", "", UserRole.EMPLOYER.toString());
+        //UserAccount userAccount = new UserAccount("Zachary", "Georgiev", "zguri@abv.bg", "ivanegei", "", UserRole.EMPLOYER.toString());
         Log.d("SII", "getUserAccount: " + userAccount.toString());
         return userAccount;
     }
@@ -100,7 +101,7 @@ public class DataProvider {
         return allUserAccounts;
     }
 
-    public ArrayList<Offer> getAllOffers() {
+    public ArrayList<Offer> getAllOffers(final AllOffersActivity allOffersActivity) {
 //        ArrayList<Offer> allOffers= new ArrayList<>();
 //
 //        allOffers.add(new Offer(
@@ -119,6 +120,8 @@ public class DataProvider {
             public void onResponse(Call<ArrayList<Offer>> call, Response<ArrayList<Offer>> response) {
                 if(response.isSuccessful()) {
                     allOffers = response.body();
+                    Log.d("SII", "onResponse: " + allOffers.toString());
+                    allOffersActivity.setNewDataToAdapter(allOffers);
                 }
             }
 
@@ -153,15 +156,21 @@ public class DataProvider {
 
     public ArrayList<Offer> getAllEmployerOffers() {
         ArrayList<Offer> allEmployerOffers= new ArrayList<>();
-        allEmployerOffers.add(new Offer(
-                1,
-                "Q&A engineer",
-                "Zdoyan CO",
-                "2 weeks",
-                "8 hours",
-                "Qkata rabota",
-                JobCategory.SOFTWARE));
+//        allEmployerOffers.add(new Offer(
+//                1,
+//                "Q&A engineer",
+//                "Zdoyan CO",
+//                "2 weeks",
+//                "8 hours",
+//                "Qkata rabota",
+//                JobCategory.SOFTWARE));
 
         return allEmployerOffers;
+    }
+
+    public void addOffer(Offer offer) {
+        Log.d("SII", "addOffer: " + offer.toString());
+        NetworkManager.getInstance().getAPI().addOffer(offer.getPublisherId(), offer.getWorkingHours(),
+                offer.getTitle(), offer.getCompanyName(), offer.getDescription(), offer.getType().toString());
     }
 }
