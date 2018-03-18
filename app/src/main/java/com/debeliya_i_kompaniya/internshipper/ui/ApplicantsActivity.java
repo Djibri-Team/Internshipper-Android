@@ -1,5 +1,6 @@
 package com.debeliya_i_kompaniya.internshipper.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;

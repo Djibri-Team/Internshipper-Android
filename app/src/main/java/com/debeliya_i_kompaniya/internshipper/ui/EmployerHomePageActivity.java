@@ -58,10 +58,7 @@ public class EmployerHomePageActivity extends BottomNavigationActivity {
         adapter = new OfferListRecyclerViewAdapter(getAllEmployerOffers(), new OnClickOffer() {
             @Override
             public void onOfferClick(Offer offer, int position) {
-                Intent intent = new Intent(getBaseContext(), ApplicantsActivity.class);
-                intent.putExtra("offer", offer);
-
-                startActivity(intent);
+                startActivity(InternshipDetailsActivity.getIntent(getBaseContext(), offer));
             }
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

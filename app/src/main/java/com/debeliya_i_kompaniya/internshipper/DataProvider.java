@@ -77,7 +77,7 @@ public class DataProvider {
 
     public UserAccount getUserAccount() {
 
-        //UserAccount userAccount = new UserAccount("Zachary", "Georgiev", "zguri@abv.bg", "ivanegei", "", UserRole.EMPLOYER.toString());
+        UserAccount userAccount = new UserAccount("Zachary", "Georgiev", "zguri@abv.bg", "ivanegei", "", UserRole.EMPLOYER.toString());
         Log.d("SII", "getUserAccount: " + userAccount.toString());
         return userAccount;
     }

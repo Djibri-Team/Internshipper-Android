@@ -37,17 +37,35 @@ public class LoginActivity extends BaseActivity {
         finish();
     }
 
+//    @OnClick(R.id.btn_signIn)
+//    void signIn() {
+//        if (!checkIfFieldsAreEmpty()) {
+//            getUserDataFromFields();
+//
+//            if(DataProvider.getInstance().loginUser(new LoginModel(email, password), this)) {
+//                Log.d("zax", "signIn: " + userRole);
+//
+//            }
+//        }
+//    }
+
+
+    //MOCK
     @OnClick(R.id.btn_signIn)
     void signIn() {
-        if (!checkIfFieldsAreEmpty()) {
-            getUserDataFromFields();
+//        if (!checkIfFieldsAreEmpty()) {
+//            getUserDataFromFields();
+//            if(DataProvider.getInstance().loginUser(new LoginModel(email, password))) {
+//                startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
+//            }
+//            getUserFromDatabase();
+//        }
 
-            if(DataProvider.getInstance().loginUser(new LoginModel(email, password), this)) {
-                Log.d("zax", "signIn: " + userRole);
+        getUserFromDatabase();
+        getUserDataFromFields();
+        //TODO: Implement this!
 
-            }
-        }
-
+        startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
     }
 
     public void getUserFromDatabase() {
