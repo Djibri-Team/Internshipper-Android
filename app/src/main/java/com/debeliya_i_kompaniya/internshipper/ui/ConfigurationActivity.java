@@ -17,10 +17,9 @@ import butterknife.OnClick;
 public class ConfigurationActivity extends BaseActivity {
 
     @BindView(R.id.btn_setup) Button setupBtn;
-    @BindView(R.id.et_config)
-    EditText etConfig;
+    @BindView(R.id.et_config) EditText etConfig;
 
-    @OnClick(R.id.et_config)
+    @OnClick(R.id.btn_setup)
     void setup() {
         SharedPreferences sharedPreferences = getSharedPreferences("Setup", Context.MODE_PRIVATE);
 
