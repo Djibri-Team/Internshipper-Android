@@ -13,7 +13,7 @@ import com.debeliya_i_kompaniya.internshipper.DataProvider;
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.BottomNavOptions;
 import com.debeliya_i_kompaniya.internshipper.models.LoginModel;
-import com.debeliya_i_kompaniya.internshipper.models.User;
+import com.debeliya_i_kompaniya.internshipper.models.UserAccount;
 import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BaseActivity;
 
 import butterknife.BindView;
@@ -29,6 +29,7 @@ public class LoginActivity extends BaseActivity {
 
     private String email;
     private String password;
+    private String userRole;
 
     @OnClick(R.id.tv_signup)
     void startRegisterActivity() {
@@ -40,38 +41,46 @@ public class LoginActivity extends BaseActivity {
     void signIn() {
         if (!checkIfFieldsAreEmpty()) {
             getUserDataFromFields();
-            if(DataProvider.getInstance().loginUser(new LoginModel(email, password))) {
-                startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
+
+            if(DataProvider.getInstance().loginUser(new LoginModel(email, password), this)) {
+                Log.d("zax", "signIn: " + userRole);
+
             }
-            getUserFromDatabase();
         }
 
-        getUserFromDatabase();
-        getUserDataFromFields();
-        //TODO: Implement this!
-
-        startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
     }
 
-    private void getUserFromDatabase() {
-        User user = DataProvider.getInstance().getUser();
+    public void getUserFromDatabase() {
+        UserAccount userAccount = DataProvider.getInstance().getUserAccount();
 
-        saveToSharedPreferences(user);
+        saveToSharedPreferences(userAccount);
+
+        if (userRole.equals("EMPLOYER")) {
+
+            startActivity(new Intent(this, EmployerHomePageActivity.class));
+        }
+        else {
+            startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.OFFERLIST));
+        }
     }
 
-    private void saveToSharedPreferences(User user) {
+    private void saveToSharedPreferences(UserAccount userAccount) {
+        Log.d("ZAX", "saveToSharedPreferences: " + userAccount.toString());
+
         SharedPreferences sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("firstName", user.getFirstName());
-        editor.putString("lastName", user.getLastName());
-        editor.putString("email", user.getEmail());
-        editor.putString("password", user.getPassword());
-        editor.putString("userRole", user.getUserRole().toString());
+        editor.putString("firstName", userAccount.getFirstName());
+        editor.putString("lastName", userAccount.getLastName());
+        editor.putString("email", userAccount.getEmail());
+        editor.putString("password", userAccount.getPassword());
+        editor.putString("userRole", userAccount.getUserRole().toString());
+
+        userRole = userAccount.getUserRole().toString();
 
         editor.apply();
 
-        Log.d("zax", "saveToSharedPreferences: " + user.getUserRole().toString());
+        Log.d("zax", "saveToSharedPreferences: " + userAccount.getUserRole().toString());
     }
 
     private boolean checkIfFieldsAreEmpty() {

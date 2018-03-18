@@ -21,7 +21,7 @@ public class NetworkManager {
     }
 
     private NetworkManager() {
-        final String url = "http://localhost:3000";
+        final String url = "http://81701e14.ngrok.io/";
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(url)

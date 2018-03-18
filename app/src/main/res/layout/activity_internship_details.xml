@@ -11,21 +11,24 @@
         android:layout_height="200dp">
 
         <TextView
-                android:layout_width="352dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="40dp"
-                android:text="Full stack (Java/Angular) Developer"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_centerHorizontal="true"/>
+            android:id="@+id/tv_position_name"
+            android:layout_width="352dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="40dp"
+            android:text="Full stack (Java/Angular) Developer"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_centerHorizontal="true"
+            />
 
         <TextView
+            android:id="@+id/tv_company_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -63,6 +66,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Software"
@@ -90,6 +94,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_duration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2 weeks"
@@ -117,6 +122,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_working_hours"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="8 hours"
@@ -135,6 +141,7 @@
             android:layout_marginTop="12dp">
 
             <TextView
+                android:id="@+id/tv_description"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_centerInParent="true"

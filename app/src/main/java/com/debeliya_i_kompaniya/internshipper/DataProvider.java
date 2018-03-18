@@ -1,7 +1,5 @@
 package com.debeliya_i_kompaniya.internshipper;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.debeliya_i_kompaniya.internshipper.enums.JobCategory;
@@ -9,10 +7,10 @@ import com.debeliya_i_kompaniya.internshipper.enums.UserRole;
 import com.debeliya_i_kompaniya.internshipper.models.LoginModel;
 import com.debeliya_i_kompaniya.internshipper.models.Offer;
 import com.debeliya_i_kompaniya.internshipper.models.OfferWithStatus;
-import com.debeliya_i_kompaniya.internshipper.models.User;
+import com.debeliya_i_kompaniya.internshipper.models.UserAccount;
 import com.debeliya_i_kompaniya.internshipper.network.NetworkManager;
+import com.debeliya_i_kompaniya.internshipper.ui.LoginActivity;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -21,7 +19,7 @@ import retrofit2.Response;
 
 public class DataProvider {
     private static DataProvider dataProvider;
-    private User user;
+    private static UserAccount userAccount;
     private ArrayList<OfferWithStatus> myOffers= new ArrayList<>();
     private ArrayList<Offer> allOffers= new ArrayList<>();
 
@@ -32,56 +30,61 @@ public class DataProvider {
         return dataProvider;
     }
 
-    public boolean loginUser(LoginModel loginModel) {
-        Call<User> loginCall = NetworkManager.getInstance().getAPI().loginUser(loginModel);
+    public boolean loginUser(LoginModel loginModel, final LoginActivity loginActivity) {
+        Call<ArrayList<UserAccount>> loginCall = NetworkManager.getInstance().getAPI().logIn(loginModel.getEmail(), loginModel.getPassword());
 
-        loginCall.enqueue(new Callback<User>() {
+        loginCall.enqueue(new Callback<ArrayList<UserAccount>>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call<ArrayList<UserAccount>> call, Response<ArrayList<UserAccount>> response) {
+
                 if(response.isSuccessful()) {
-                    user = response.body();
+                    userAccount = response.body().get(0);
+                    loginActivity.getUserFromDatabase();
+                    Log.d("SII", "onResponse: " + userAccount.toString());
                 }
             }
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                Log.d("SII", "onFailure: login of user");
+            public void onFailure(Call<ArrayList<UserAccount>> call, Throwable t) {
+
+                Log.d("SII", "onFailure: " + t.getMessage());
             }
         });
 
-        if(user != null) {
+        if(userAccount != null) {
             return true;
         }
         return false;
     }
 
-    public boolean registerUser(final User userForRegistering) {
-        Call<User> registerCall = NetworkManager.getInstance().getAPI().registerUser(userForRegistering);
+    public boolean registerUser(final UserAccount userAccountForRegistering) {
+        Call<UserAccount> registerCall = NetworkManager.getInstance().getAPI().registerUser(userAccountForRegistering);
 
-        registerCall.enqueue(new Callback<User>() {
+        registerCall.enqueue(new Callback<UserAccount>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call<UserAccount> call, Response<UserAccount> response) {
                 if(response.isSuccessful()) {
-                    user = response.body();
+                    userAccount = response.body();
                 }
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<UserAccount> call, Throwable t) {
 
             }
         });
         return false;
     }
 
-    public User getUser() {
-        User user = new User("Zachary", "Georgiev", "zguri@abv.bg", "ivanegei", "", UserRole.EMPLOYER.toString());
+    public UserAccount getUserAccount() {
 
-        return user;
+        //UserAccount userAccount = new UserAccount("Zachary", "Georgiev", "zguri@abv.bg", "ivanegei", "", UserRole.EMPLOYER.toString());
+        Log.d("SII", "getUserAccount: " + userAccount.toString());
+        return userAccount;
     }
 
-    public ArrayList<User> getAllApplicants() {
-        ArrayList<User> allUsers = new ArrayList<>();
-        allUsers.add(new User(
+    public ArrayList<UserAccount> getAllApplicants() {
+        ArrayList<UserAccount> allUserAccounts = new ArrayList<>();
+        allUserAccounts.add(new UserAccount(
                 "Ivan",
                 "Ganchev",
                 "vanibani@abv.bg",
@@ -91,7 +94,7 @@ public class DataProvider {
 
 
 
-        return allUsers;
+        return allUserAccounts;
     }
 
     public ArrayList<Offer> getAllOffers() {
@@ -126,7 +129,7 @@ public class DataProvider {
     }
 
     public ArrayList<OfferWithStatus> getMyOffers() {
-        Call<ArrayList<OfferWithStatus>> myOffersCall = NetworkManager.getInstance().getAPI().getUserOffers(user.getId());
+        Call<ArrayList<OfferWithStatus>> myOffersCall = NetworkManager.getInstance().getAPI().getUserOffers(userAccount.getId());
 
         myOffersCall.enqueue(new Callback<ArrayList<OfferWithStatus>>() {
             @Override
@@ -143,5 +146,19 @@ public class DataProvider {
         });
 
         return myOffers;
+    }
+
+    public ArrayList<Offer> getAllEmployerOffers() {
+        ArrayList<Offer> allEmployerOffers= new ArrayList<>();
+        allEmployerOffers.add(new Offer(
+                1,
+                "Q&A engineer",
+                "Zdoyan CO",
+                "2 weeks",
+                "8 hours",
+                "Qkata rabota",
+                JobCategory.SOFTWARE));
+
+        return allEmployerOffers;
     }
 }

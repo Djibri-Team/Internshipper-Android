@@ -2,32 +2,40 @@ package com.debeliya_i_kompaniya.internshipper.models;
 
 import com.debeliya_i_kompaniya.internshipper.enums.UserRole;
 
-public class User {
+public class UserAccount {
     private int id;
     private String firstName;
     private String lastName;
     private String email;
-    private String password;
+    private String userPassword;
     private String description;
     private UserRole userRole;
 
-    public User(int id, String firstName, String lastName, String email, String password, String description, String userRole) {
+    public UserAccount(int id, String firstName, String lastName, String email, String password, String description, String userRole) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.password = password;
+        this.userPassword = password;
         this.description = description;
         this.userRole = UserRole.StringToUserRole(userRole);
     }
 
-    public User(String firstName, String lastName, String email,String password, String description, String userRole) {
+    public UserAccount(String firstName, String lastName, String email, String password, String description, String userRole) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.userPassword = password;
         this.email = email;
         this.description = description;
         this.userRole = UserRole.StringToUserRole(userRole);
 
+    }
+
+    public UserAccount(String firstName, String lastName, String email, String password, String userRole) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.userRole = UserRole.StringToUserRole(userRole);
     }
 
     public String getFirstName() {
@@ -43,7 +51,7 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return userPassword;
     }
 
     public String getDescription() {
@@ -56,5 +64,18 @@ public class User {
 
     public int getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "UserAccount{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + userPassword + '\'' +
+                ", description='" + description + '\'' +
+                ", userRole=" + userRole +
+                '}';
     }
 }
