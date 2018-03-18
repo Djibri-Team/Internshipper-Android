@@ -1,39 +1,39 @@
 package com.debeliya_i_kompaniya.internshipper.network;
 
-import com.debeliya_i_kompaniya.internshipper.models.LoginModel;
 import com.debeliya_i_kompaniya.internshipper.models.Offer;
 import com.debeliya_i_kompaniya.internshipper.models.OfferWithStatus;
-import com.debeliya_i_kompaniya.internshipper.models.User;
+import com.debeliya_i_kompaniya.internshipper.models.UserAccount;
 
 import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
-/**
- * Created by Stoyan-Ivanov on 16.3.2018 г..
- */
-
 public interface InternshipperAPI {
 
-    @GET("/login")
-    Call<User> loginUser(@Body LoginModel loginModel);
+    @FormUrlEncoded
+    @POST("login")
+    Call<ArrayList<UserAccount>> logIn(
+            @Field("email") String email,
+            @Field("password") String password);
 
-    @POST("/register")
-    Call<User> registerUser(@Body User user);
+    @POST("register")
+    Call<UserAccount> registerUser(@Body UserAccount userAccount);
 
-    @GET("/user/offers/")
+    @GET("user/offers/")
     Call<ArrayList<OfferWithStatus>> getUserOffers(@Query("userId") int userId);
 
-    @GET("/publisher/offers")
+    @GET("publisher/offers")
     Call<ArrayList<Offer>> getPublisherOffers();
 
-    @GET("/publisher/userOnOffer/")
-    Call<ArrayList<User>> getAllUsersForOffer(@Query("offerId") int offerId);
+    @GET("publisher/userOnOffer/")
+    Call<ArrayList<UserAccount>> getAllUsersForOffer(@Query("offerId") int offerId);
 
     @POST("/offers/add")
     void addOffer(@Body Offer offer);

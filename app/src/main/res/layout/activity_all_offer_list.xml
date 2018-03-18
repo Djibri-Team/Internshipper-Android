@@ -36,6 +36,7 @@
         android:elevation="6dp"
         app:backgroundTint="@color/themeBlue"
         android:src="@drawable/ic_action_plus"
+        android:visibility="gone"
         />
 
 </RelativeLayout>

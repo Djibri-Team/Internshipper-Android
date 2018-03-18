@@ -32,7 +32,7 @@ public class AddOfferActivity extends BaseActivity {
 
     @OnClick(R.id.ib_back_button)
     void goBackToAllOffers() {
-        startActivity(AllOffersActivity.getIntent(this, BottomNavOptions.OFFERLIST));
+        startActivity(EmployerHomePageActivity.getIntent(this, BottomNavOptions.HOME));
     }
 
     private RadioButton rb;
@@ -46,7 +46,7 @@ public class AddOfferActivity extends BaseActivity {
         if (!checkIfFieldsAreEmpty()) {
             saveOfferToDatabase(createOffer());
 
-            startActivity(AllOffersActivity.getIntent(this, BottomNavOptions.OFFERLIST));
+            startActivity(EmployerHomePageActivity.getIntent(this, BottomNavOptions.HOME));
             finish();
         }
     }

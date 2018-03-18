@@ -8,7 +8,6 @@ import android.widget.EditText;
 
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.StartConstants;
-import com.debeliya_i_kompaniya.internshipper.models.User;
 import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BottomNavigationActivity;
 
 import butterknife.BindView;

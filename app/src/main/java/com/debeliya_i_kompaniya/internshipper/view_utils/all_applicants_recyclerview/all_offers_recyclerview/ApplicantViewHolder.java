@@ -5,8 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.debeliya_i_kompaniya.internshipper.R;
-import com.debeliya_i_kompaniya.internshipper.models.Offer;
-import com.debeliya_i_kompaniya.internshipper.models.User;
+import com.debeliya_i_kompaniya.internshipper.models.UserAccount;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,14 +20,14 @@ public class ApplicantViewHolder extends RecyclerView.ViewHolder {
         ButterKnife.bind(this, itemView);
     }
 
-    public void bind(final User user, final OnClickApplicants listener) {
-        applicantName.setText(user.getFirstName() + user.getLastName());
-        applicantEmail.setText(user.getEmail());
+    public void bind(final UserAccount userAccount, final OnClickApplicants listener) {
+        applicantName.setText(userAccount.getFirstName() + userAccount.getLastName());
+        applicantEmail.setText(userAccount.getEmail());
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onClickApplicant(user, getAdapterPosition());
+                listener.onClickApplicant(userAccount, getAdapterPosition());
             }
         });
     }

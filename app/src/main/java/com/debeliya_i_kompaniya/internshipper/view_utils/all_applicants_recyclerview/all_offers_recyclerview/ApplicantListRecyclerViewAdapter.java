@@ -6,16 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.debeliya_i_kompaniya.internshipper.R;
-import com.debeliya_i_kompaniya.internshipper.models.Offer;
-import com.debeliya_i_kompaniya.internshipper.models.User;
+import com.debeliya_i_kompaniya.internshipper.models.UserAccount;
 
 import java.util.ArrayList;
 
 public class ApplicantListRecyclerViewAdapter extends RecyclerView.Adapter<ApplicantViewHolder> {
-    ArrayList<User> allApplicants;
+    ArrayList<UserAccount> allApplicants;
     OnClickApplicants listener;
 
-    public ApplicantListRecyclerViewAdapter(ArrayList<User> allApplicants, OnClickApplicants onClickApplicants) {
+    public ApplicantListRecyclerViewAdapter(ArrayList<UserAccount> allApplicants, OnClickApplicants onClickApplicants) {
         this.allApplicants = allApplicants;
         listener = onClickApplicants;
     }

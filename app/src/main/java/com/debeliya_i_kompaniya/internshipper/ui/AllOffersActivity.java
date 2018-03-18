@@ -24,13 +24,7 @@ import butterknife.OnClick;
 
 public class AllOffersActivity extends BottomNavigationActivity {
     @BindView(R.id.rv_all_offers) RecyclerView recyclerView;
-    @BindView(R.id.fab_add_offer) FloatingActionButton fabAddOffer;
     private OfferListRecyclerViewAdapter adapter;
-
-    @OnClick(R.id.fab_add_offer)
-    void startAddOfferActivity() {
-        startActivity(new Intent(this, AddOfferActivity.class));
-    }
 
     public static Intent getIntent(Context context, int bottomNavOption) {
         Intent intent = new Intent(context, AllOffersActivity.class);
@@ -44,25 +38,16 @@ public class AllOffersActivity extends BottomNavigationActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_offer_list);
         configureRecyclerView();
-
-        checkUserRole();
-    }
-
-    private void checkUserRole() {
-        SharedPreferences sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
-
-        String userRole = sharedPreferences.getString("userRole", "");
-
-        if (userRole.equals("STUDENT")) {
-            fabAddOffer.setVisibility(View.GONE);
-        }
     }
 
     private void configureRecyclerView() {
         adapter = new OfferListRecyclerViewAdapter(getAllOffers(), new OnClickOffer() {
             @Override
             public void onOfferClick(Offer offer, int position) {
-                //TODO IMPLEMENT ME!
+                Intent intent = new Intent(getBaseContext(), InternshipDetailsActivity.class);
+                intent.putExtra("offer", offer);
+
+                startActivity(intent);
             }
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

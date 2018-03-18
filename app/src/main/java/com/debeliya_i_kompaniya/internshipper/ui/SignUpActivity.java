@@ -1,7 +1,6 @@
 package com.debeliya_i_kompaniya.internshipper.ui;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -13,7 +12,7 @@ import com.debeliya_i_kompaniya.internshipper.InternshipperApplication;
 import com.debeliya_i_kompaniya.internshipper.R;
 import com.debeliya_i_kompaniya.internshipper.constants.BottomNavOptions;
 import com.debeliya_i_kompaniya.internshipper.enums.UserRole;
-import com.debeliya_i_kompaniya.internshipper.models.User;
+import com.debeliya_i_kompaniya.internshipper.models.UserAccount;
 import com.debeliya_i_kompaniya.internshipper.ui.base_activities.BaseActivity;
 
 import butterknife.BindView;
@@ -25,7 +24,6 @@ public class SignUpActivity extends BaseActivity {
     @BindView(R.id.et_email) EditText etEmail;
     @BindView(R.id.et_password) EditText etPassword;
     @BindView(R.id.et_confirm_password) EditText etConfirmPassword;
-    @BindView(R.id.et_description) EditText etDescription;
     @BindView(R.id.btn_signup) CircularProgressButton btnSignUp;
     @BindView(R.id.tv_signin) TextView tvSignIn;
     @BindView(R.id.cb_user_role) CheckBox userRoleCheckBox;
@@ -35,8 +33,8 @@ public class SignUpActivity extends BaseActivity {
         if(checkIfFieldsAreEmpty()) {
             checkIfPasswordsMatch();
         } else {
-            User user = getDataFromFields();
-            if(DataProvider.getInstance().registerUser(user)) {
+            UserAccount userAccount = getDataFromFields();
+            if(DataProvider.getInstance().registerUser(userAccount)) {
                 startActivity(MyOfferListActivity.getIntent(this, BottomNavOptions.HOME));
             }
         }
@@ -76,12 +74,11 @@ public class SignUpActivity extends BaseActivity {
         return false;
     }
 
-    public User getDataFromFields() {
+    public UserAccount getDataFromFields() {
         String firstName = etFirstName.getText().toString();
         String lastName = etLastName.getText().toString();
         String email = etEmail.getText().toString();
         String password = etPassword.getText().toString();
-        String description = etDescription.getText().toString();
         UserRole userRole;
         if(userRoleCheckBox.isChecked()) {
             userRole = UserRole.EMPLOYER;
@@ -89,6 +86,6 @@ public class SignUpActivity extends BaseActivity {
             userRole = UserRole.STUDENT;
         }
 
-        return new User(firstName, lastName, email, password, description, userRole.toString());
+        return new UserAccount(firstName, lastName, email, password, userRole.toString());
     }
 }
