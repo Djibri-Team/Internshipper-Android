@@ -32,7 +32,7 @@ public interface InternshipperAPI {
             @Field("email") String email,
             @Field("userRole") String userRole);
 
-    @GET("user/offers/")
+    @GET("user/applications/")
     Call<ArrayList<OfferWithStatus>> getUserOffers(@Query("userId") int userId);
 
     @GET("publisher/applications")
@@ -53,6 +53,10 @@ public interface InternshipperAPI {
 
     @GET("offers")
     Call<ArrayList<Offer>> getAllOffers();
+
+    @GET("publisher/offers")
+    Call<ArrayList<UserAccount>> getAllApplicantsForOffer(@Query("offerId") int offerId);
+
 
     @DELETE("/deleteOffer")
     void deleteOffer(@Body int offerId);

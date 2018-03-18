@@ -19,6 +19,11 @@ public class ApplicantListRecyclerViewAdapter extends RecyclerView.Adapter<Appli
         listener = onClickApplicants;
     }
 
+    public void setData(ArrayList<UserAccount> userAccounts) {
+        allApplicants = userAccounts;
+        notifyDataSetChanged();
+    }
+
     @Override
     public ApplicantViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
